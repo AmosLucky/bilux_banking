@@ -1,0 +1,40 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+
+# Rewrite for contact.php
+RewriteRule ^contact$  contact.php
+RewriteRule ^home$   index.php 
+RewriteRule ^index$   index.php 
+RewriteRule ^about$   about.php 
+RewriteRule ^about-us$   about.php 
+RewriteRule ^faq$   faq.php 
+RewriteRule ^forget$   forget.php 
+RewriteRule ^login$   login.php 
+RewriteRule ^register$   register.php
+RewriteRule ^signin$   login.php 
+RewriteRule ^signup$   signup.php
+RewriteRule ^login.html$   login.php
+RewriteRule ^signup.html$   signup.php
+
+RewriteRule ^terms$   terms.php
+
+RewriteRule ^buycoin$   buycoin.php
+RewriteRule ^cannabis$   cannabis.php
+RewriteRule ^crypto$   crypto.php
+RewriteRule ^estate$   estate.php
+
+RewriteRule ^forex$   forex.php
+RewriteRule ^gold$   gold.php
+RewriteRule ^legal$   legal.php
+RewriteRule ^loan$   loan.php
+
+RewriteRule ^oil$   oil.php
+RewriteRule ^privacy$   privacy.php
+RewriteRule ^retire$   retire.php
+RewriteRule ^service$   service.php
+
+
+
+
+
+

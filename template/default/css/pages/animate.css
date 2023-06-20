@@ -1,0 +1,136 @@
+.animate__item {
+	transition: all .5s linear;
+}
+
+.animate__item_opacity {
+	opacity: 0;
+}
+
+.is-animated .animate__item_opacity, .last-requests__more-show .animate__item_opacity {
+	opacity: 1;
+}
+
+.animate__item_left {
+	transform: translateX(-20px);
+}
+
+.is-animated .animate__item_left {
+	transform: translateX(0px);
+}
+
+.animate__item_right {
+	transform: translateX(20px);
+}
+
+.is-animated .animate__item_right {
+	transform: translateX(0px);
+}
+
+.animate__item_top {
+	transform: translateY(20px);
+}
+
+.is-animated .animate__item_top {
+	transform: translateX(0px);
+}
+
+/* Milestones line */
+.is-animated .roadmap-line__part_animate::before {
+	width: 100%;
+}
+
+.roadmap-line__part_animate.animate__item_delay_1::before,
+.animate__item_delay_1 .milestones__title,
+.milestones__row:first-of-type .animate__item_delay_1.milestones__item::after,
+.milestones__row:last-of-type .animate__item_delay_1.milestones__item::before {
+	transition-delay: .25s;
+}
+
+.roadmap-line__part_animate.animate__item_delay_2::before,
+.animate__item_delay_2 .milestones__title,
+.milestones__row:first-of-type .animate__item_delay_2.milestones__item::after,
+.milestones__row:last-of-type .animate__item_delay_2.milestones__item::before {
+	transition-delay: .5s;
+}
+
+.roadmap-line__part_animate.animate__item_delay_3::before,
+.animate__item_delay_3 .milestones__title,
+.milestones__row:first-of-type .animate__item_delay_3.milestones__item::after,
+.milestones__row:last-of-type .animate__item_delay_3.milestones__item::before {
+	transition-delay: .75s;
+}
+
+.roadmap-line__part_animate.animate__item_delay_4::before,
+.animate__item_delay_4 .milestones__title,
+.milestones__row:first-of-type .animate__item_delay_4.milestones__item::after,
+.milestones__row:last-of-type .animate__item_delay_4.milestones__item::before {
+	transition-delay: 1s;
+}
+
+.roadmap-line__part_animate.animate__item_delay_5::before,
+.animate__item_delay_5 .milestones__title,
+.milestones__row:first-of-type .animate__item_delay_5.milestones__item::after,
+.milestones__row:last-of-type .animate__item_delay_5.milestones__item::before {
+	transition-delay: 1.25s;
+}
+
+.roadmap-line__part_animate.animate__item_delay_6::before,
+.animate__item_delay_6 .milestones__title,
+.milestones__row:first-of-type .animate__item_delay_6.milestones__item::after,
+.milestones__row:last-of-type .animate__item_delay_6.milestones__item::before {
+	transition-delay: 1.5s;
+}
+
+
+/* Delays */
+.animate__item_delay_1 {
+	transition-delay: .25s;
+}
+
+.animate__item_delay_2 {
+	transition-delay: .5s;
+}
+
+.animate__item_delay_3 {
+	transition-delay: .75s;
+}
+
+.animate__item_delay_4 {
+	transition-delay: 1s;
+}
+
+.animate__item_delay_5 {
+	transition-delay: 1.25s;
+}
+
+.animate__item_delay_6 {
+	transition-delay: 1.5s;
+}
+
+.animate__item_delay_7 {
+	transition-delay: 1.75s;
+}
+
+.animate__item_delay_8 {
+	transition-delay: 2s;
+}
+
+.animate__item_delay_9 {
+	transition-delay: 2.25s;
+}
+
+.animate__item_delay_10 {
+	transition-delay: 2.5s;
+}
+
+.animate__item_delay_11 {
+	transition-delay: 2.75s;
+}
+
+@media (max-width: 767px) {
+	.is-animated .animate__item_right {
+		transform: translateX(0px);
+	}
+}
+
+

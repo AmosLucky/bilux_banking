@@ -1,0 +1,280 @@
+<?php
+include 'admin_head.php';
+$msg ="";
+$msgt = "";
+
+$question = "";
+ $answer ="";
+ $featured_image = "";
+ $page_type = "";
+ 
+  $contact = "";
+  $id = "";
+   $position = "";
+
+  if(isset($_GET['e'])){
+    $id = $_GET['e'];
+     $sql = "SELECT * FROM faq where id = '$id'";
+   $result = mysqli_query($con,$sql);
+   while ($row = mysqli_fetch_array($result)) {
+    //$author =  $row['author'];
+    //$question = strip_tags($row['contact']);
+    $question = $row['question'];
+     $answer = $row['answer'];
+    // $position = $row['position'];
+     // code...
+   }
+
+  }
+if(isset($_POST['post'])){
+
+   $question = $_POST['question'];
+     $answer = $_POST['answer'];
+
+   ///$page_link = str_replace(" ","-",strtolower($title));
+
+   if(strlen($question)>2){
+    if(strlen($answer)>2){
+     /// echo $contact;
+
+      
+   
+
+   $post_date = date("Y M j");
+
+   $sql = "INSERT INTO faq(question,answer)
+                          values('$question','$answer')";
+    $result = mysqli_query($con,$sql) or die("cant post".mysqli_error($con));
+    if($result){
+      $msg = "successful <br>";
+    $msgt = "success";
+
+    }else{
+      $msg = "An error occoured";
+    $msgt = "danger";
+
+    }
+
+   
+
+
+  
+
+
+}else{
+
+    $msg = "Answer too short";
+    $msgt = "danger";
+
+}
+
+
+        
+
+   
+
+
+    }else{
+    $msg = "Question too short";
+    $msgt = "danger";
+
+   }
+
+    
+}
+
+
+
+
+if(isset($_POST['update'])){
+
+  
+  $id = $_POST['id'];
+  $question = $_POST['question'];
+     $answer = $_POST['answer'];
+
+   ///$page_link = str_replace(" ","-",strtolower($title));
+
+   if(strlen($question)>2){
+    if(strlen($answer)>2){
+
+  
+         
+      
+   
+   
+        
+  
+   $sql = "UPDATE  faq set question = '$question',answer = '$answer' where id = '$id'
+              ";
+
+
+
+
+  
+
+   
+    $result = mysqli_query($con,$sql) or die("cant post".mysqli_error($con));
+    if($result){
+      $msg = "successful updated <br>";
+    $msgt = "success";
+
+    
+
+    }else{
+      $msg = "An error occoured";
+    $msgt = "danger";
+
+    }
+
+   
+
+
+   
+
+
+
+
+
+        
+
+   
+
+
+    }else{
+    $msg = "Answer name too short";
+    $msgt = "danger";
+
+   }
+
+    }else{
+    $msg = "question too short";
+    $msgt = "danger";
+
+   }
+   
+}
+
+
+
+
+   ?>
+  <head>
+        <meta charset="utf-8">
+        <title>RichText example</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/site.css">
+        <link rel="stylesheet" href="src/richtext.min.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="src/jquery.richtext.js"></script>
+        
+
+
+
+    </head>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+             
+
+       
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800"><b>New FAQ </b></h1>
+          
+
+       <div class="text-center alert alert-<?php echo $msgt ?>"><?php echo $msg ?></div>
+
+
+
+          <div class="row p-3">
+            
+
+            <div class="col-lg-12">
+
+              <!-- Circle Buttons -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                  
+                   </h6>
+                </div>
+                <div class="card-contact p-3">
+
+
+                     
+                   
+
+                   
+                 <form method="POST"  enctype="multipart/form-data">
+                  
+                    <div class="form form">
+                         
+                           <div class="input-group mb-3 form">
+   <textarea type="text" required="" class="form-control" name="question" placeholder="Question"><?php echo 
+   $question ?></textarea>
+  </div>
+   
+    <div class="input-group mb-3 form">
+
+    <textarea type="text" required="" class="form-control" name="answer" placeholder="Answer"><?php echo 
+   $answer ?></textarea>
+
+    
+  </div>
+ 
+  
+                      
+
+
+                      
+                      
+                     
+                   
+
+              <div class="row justify-content-center">
+             <?php 
+
+             if(isset($_GET['e'])){
+
+             ?>
+             <input type="hidden" name="id" value="<?php echo $id ?>">
+               <button type="submit"  class="btn btn-primary" name="update">update</button>
+
+           <?php }else{ ?>
+              <button type="submit"  class="btn btn-primary" name="post">POST</button>
+           <?php } ?>
+                
+              </div>
+
+                 </form>
+
+
+
+
+
+               </div>
+              </div>
+
+            </div>
+
+             
+
+        </div>
+
+         
+      <!--   ////////////////////////////////BTC////////////////////////////////////////////// -->
+
+
+
+
+        <!--   ////////////////////////////////ETH///////////////////////////////////////////// -->
+
+      
+        <!-- /.container-fluid -->
+   
+   <?php 
+require "admin_footer.php";
+
+        ?>
