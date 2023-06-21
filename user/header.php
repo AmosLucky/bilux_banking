@@ -166,6 +166,7 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
   <link rel="shortcut icon" href="../images/logo-icon-color.png" />
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
 </head>    <style>
         .popular-item {
@@ -221,7 +222,7 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
                     <ion-icon name="settings-outline"></ion-icon>
                     Settings
                   </a>
-                  <a href="?logout=1" class="dropdown-item">
+                  <a href="logout.php" class="dropdown-item">
                     <ion-icon name="log-in-outline"></ion-icon>
                     Logout
                   </a>
@@ -293,7 +294,7 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
                 <li class="nav-item"><a class="nav-link" href="profile.php">My Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="wallet.php">My Wallet</a></li>
                 <li class="nav-item"><a class="nav-link" href="ref.php?w=1">My Referral</a></li>
-                <li class="nav-item"><a class="nav-link" href="?logout=1">Sign Out</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout.php">Sign Out</a></li>
                 </ul>
               </div>
             </li>

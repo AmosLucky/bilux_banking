@@ -249,12 +249,12 @@ body {
                                     <a class="languages__item languages__item_disabled languages__item_th" href="#">ภาษาไทย</a> 
                                 </div> </div> </div> </div> -->
                                 <ul class="menu"> 
-                                   <li class="menu__item menu__item_block"> <a href="about.html">About Us</a> </li> 
+                                   <li class="menu__item menu__item_block"> <a href="about">About Us</a> </li> 
                                    <li class="menu__item menu__item_block"> <a href="service.php">Our Services</a> </li> 
                                                  <li class="menu__item menu__item_block"> <a href="legal.php">Legal Information</a> </li> 
-                                                <li class="menu__item menu__item_block"> <a href="tutorial.html">User guides</a> </li> 
-                                                <li class="menu__item menu__item_block"> <a href="contact.html">Help Center</a> </li> 
-                                                <li class="menu__item menu__item_block"> <a href="terms.html">Terms of Use</a> </li> 
+                                                <li class="menu__item menu__item_block"> <a href="tutorial">User guides</a> </li> 
+                                                <li class="menu__item menu__item_block"> <a href="contact">Help Center</a> </li> 
+                                                <li class="menu__item menu__item_block"> <a href="terms">Terms of Use</a> </li> 
                                 </ul> </div> <div class="navigation-mobile"> 
                                     <div class="navigation-mobile__row"> 
                                         <a href="index.php" class="logo navigation-mobile_logo"> 
@@ -293,21 +293,21 @@ body {
                                         <div> 
                                             <a href="index.php" class="logo "> <img src="img/logo.png" alt=""> </a> 
                                             <ul class="menu auth"> 
-                                                 <li class="menu__item menu__item_block"> <a href="about.html">About Us</a> </li> 
+                                                 <li class="menu__item menu__item_block"> <a href="about">About Us</a> </li> 
                                                  <li class="menu__item menu__item_block"> <a href="service.php">Our Service</a> </li> 
                                                  <li class="menu__item menu__item_block"> <a href="legal.php">Legal Information</a> </li> 
                                                 <!--<li class="menu__item menu__item_block"> <a href="tutorial.php">User guides</a> </li> -->
-                                                <li class="menu__item menu__item_block"> <a href="contact.html">Help Center</a> </li> 
-                                                <li class="menu__item menu__item_block"> <a href="terms.html">Terms of Use</a> </li> 
+                                                <li class="menu__item menu__item_block"> <a href="contact">Help Center</a> </li> 
+                                                <li class="menu__item menu__item_block"> <a href="terms">Terms of Use</a> </li> 
                                                 <li class="menu__item auth__item_login menu__item_block"> 
-                                                    <a href="login.html"> <span class="auth__arrow"> 
+                                                    <a href="login"> <span class="auth__arrow"> 
                                                             <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"> 
                                                             <path d="M10.6087 3.82765H0.521739C0.233738 3.82765 0 3.59391 0 3.30591C0 3.01791 0.233738 2.78418 0.521739 2.78418H10.6087C10.8967 2.78418 11.1304 3.01791 11.1304 3.30591C11.1304 3.59391 10.8967 3.82765 10.6087 3.82765Z" fill="#FFE145" /> <path d="M7.8263 6.60987C7.69268 6.60987 7.55919 6.55917 7.45754 6.45697C7.25374 6.25307 7.25374 5.92267 7.45754 5.71877L9.87147 3.30496L7.45754 0.891018C7.25374 0.687208 7.25374 0.356658 7.45754 0.152858C7.66147 -0.0509525 7.99189 -0.0509525 8.19569 0.152858L10.9783 2.93556C11.1821 3.13936 11.1821 3.46978 10.9783 3.67359L8.19569 6.45617C8.09341 6.55917 7.95992 6.60987 7.8263 6.60987Z" fill="#FFE145" /> </svg> </span>
 							Login
 						</a> 
                                                 </li> 
                                                 <li class="menu__item auth__item_register menu__item_block"> 
-                                                    <a href="signup.html"> <span class="auth__check"> <svg class="animated-check" viewBox="0 0 24 24"> <path d="M4.1 12.7L9 17.6 20.3 6.3" fill="none" /> </svg> </span>
+                                                    <a href="signup"> <span class="auth__check"> <svg class="animated-check" viewBox="0 0 24 24"> <path d="M4.1 12.7L9 17.6 20.3 6.3" fill="none" /> </svg> </span>
 							Registration
 						</a> 
                                                 </li> 
@@ -322,12 +322,12 @@ body {
          
         <ul class="auth"> 
             <li class="auth__item auth__item_login"> 
-                <a href="login.html"> <span class="auth__arrow"> <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10.6087 3.82765H0.521739C0.233738 3.82765 0 3.59391 0 3.30591C0 3.01791 0.233738 2.78418 0.521739 2.78418H10.6087C10.8967 2.78418 11.1304 3.01791 11.1304 3.30591C11.1304 3.59391 10.8967 3.82765 10.6087 3.82765Z" fill="#FFE145" /> <path d="M7.8263 6.60987C7.69268 6.60987 7.55919 6.55917 7.45754 6.45697C7.25374 6.25307 7.25374 5.92267 7.45754 5.71877L9.87147 3.30496L7.45754 0.891018C7.25374 0.687208 7.25374 0.356658 7.45754 0.152858C7.66147 -0.0509525 7.99189 -0.0509525 8.19569 0.152858L10.9783 2.93556C11.1821 3.13936 11.1821 3.46978 10.9783 3.67359L8.19569 6.45617C8.09341 6.55917 7.95992 6.60987 7.8263 6.60987Z" fill="#FFE145" /> </svg> </span>
+                <a href="login"> <span class="auth__arrow"> <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10.6087 3.82765H0.521739C0.233738 3.82765 0 3.59391 0 3.30591C0 3.01791 0.233738 2.78418 0.521739 2.78418H10.6087C10.8967 2.78418 11.1304 3.01791 11.1304 3.30591C11.1304 3.59391 10.8967 3.82765 10.6087 3.82765Z" fill="#FFE145" /> <path d="M7.8263 6.60987C7.69268 6.60987 7.55919 6.55917 7.45754 6.45697C7.25374 6.25307 7.25374 5.92267 7.45754 5.71877L9.87147 3.30496L7.45754 0.891018C7.25374 0.687208 7.25374 0.356658 7.45754 0.152858C7.66147 -0.0509525 7.99189 -0.0509525 8.19569 0.152858L10.9783 2.93556C11.1821 3.13936 11.1821 3.46978 10.9783 3.67359L8.19569 6.45617C8.09341 6.55917 7.95992 6.60987 7.8263 6.60987Z" fill="#FFE145" /> </svg> </span>
 						Login
 					</a> 
             </li> 
             <li class="auth__item auth__item_register"> 
-                <a href="signup.html"> <span class="auth__check"> <svg class="animated-check" viewBox="0 0 24 24"> <path d="M4.1 12.7L9 17.6 20.3 6.3" fill="none" /> </svg> </span>
+                <a href="signup"> <span class="auth__check"> <svg class="animated-check" viewBox="0 0 24 24"> <path d="M4.1 12.7L9 17.6 20.3 6.3" fill="none" /> </svg> </span>
 						Registration
 					</a> </li> 
         </ul> 
