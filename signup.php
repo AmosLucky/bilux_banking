@@ -1,4 +1,330 @@
 
+<?php
+
+session_start();
+require "header.php";
+
+
+  $fname = "";
+  $lname = "";
+  $username = "";
+  $password = "";
+  $state= "";
+  $phone = "";
+  $email = "";
+
+
+
+
+
+$error = "";
+$sucess = "";
+$ref ="";
+
+if(isset($_GET['ref'])){
+  $_SESSION['ref'] = $_GET['ref'];
+  $ref =  $_SESSION['ref'];
+}
+
+$user = "";
+if(isset($_GET['user'])){
+  $user = $_GET['user'];
+}
+// echo "oooo";
+if(isset($_POST['register'])){
+
+  //collecting from input field
+  $fname = "   ";//$_POST['fname'];
+  $lname = "   ";//$_POST['lname'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $state= "   ";//$_POST['state'];
+  $phone = "  ";//$_POST['phone'];
+  $repassword = $_POST['repassword'];
+  $email = $_POST['email'];
+  $referral = $_POST['referral'];
+  $btc_wallet = "";//$_POST['btc_wallet'];
+  
+ $gender = "";
+
+  //$referrer = $_POST['referrer'];
+
+  // validating the form
+  // firstnaem && last name
+  if(strlen($fname) > 0 && strlen($lname) > 0){
+    //username and password
+    if (strlen($username) > 2 ){
+      if(strlen($password) > 5){
+        if($password == $repassword){
+      //state , phone or email
+      if ($state != "select-country"){
+        //email
+        if (strpos($email, '@') == true ){
+          
+
+
+
+  //sanitising and checking for scarmmers
+
+  $fnamev = mysqli_real_escape_string($con,$fname);
+  $lnamev = mysqli_real_escape_string($con,$lname);
+  $usernamev = mysqli_real_escape_string($con,$username);
+  $passwordv = mysqli_real_escape_string($con,$password);
+  $statev = mysqli_real_escape_string($con,$state);
+  $phonev = mysqli_real_escape_string($con,$phone);
+  $emailv = mysqli_real_escape_string($con,$email);
+  //$referrerv = mysqli_real_escape_string($con,$referrer);
+
+  //check if username already exists
+
+  $sql = "select * from members where username = '$usernamev' || email = '$emailv'";
+  $check = mysqli_query($con,$sql) or die("cant check ".mysql_error($con));
+   $usernamecheck = mysqli_num_rows($check);
+  if($usernamecheck < 1){
+
+    //credit the referrer
+    if(strlen($referral) > 3){
+    $referral = mysqli_real_escape_string($con,$referral);
+      $sql = "SELECT * from members where username = '$referral'";
+      $checkref = mysqli_query($con,$sql) or die("cant check ".mysqli_error($con));
+      $refcheck = mysqli_num_rows($checkref);
+      //if the exists
+      if($refcheck == 1){
+        while($row = mysqli_fetch_array($checkref)){
+
+          $num_referree = $row['referree'];
+          $user = $row['username'];
+
+
+          //updating the referrer
+          $add = $num_referree + 1;
+        $sql = "UPDATE members set referree = '$add' where username = '$user'  ";
+      $check = mysqli_query($con,$sql) or die("cant check ".mysqli_error($con));
+
+        }
+
+      }
+
+  }
+
+else{//set referree as lucky
+    $sql = "select * from members where username = ''";
+      $checkref = mysqli_query($con,$sql) or die("cant check ".mysqli_error($con));
+      while($row = mysqli_fetch_array($checkref)){
+
+          $num_referree = $row['referree'];
+          $user = $row['username'];
+
+
+          //updating the referrer
+          $add = $num_referree + 1;
+        $sql = "update members set referree = '$add' where username = '$user'  ";
+      $check = mysqli_query($con,$sql) or die("cant check ".mysqli_error($con));
+
+        }
+
+
+}
+$reg_date = date("d-m-Y");
+
+
+//     //insert
+
+//     if(isset($_SESSION['ref'])){
+//     $referrerv = mysqli_real_escape_string($con,$_SESSION['ref']);
+//   }
+//   else{
+//     $referrerv = 'lucky';
+//   }
+
+
+  $sql = "insert into members (firstname, lastname,username, password,phonenumber,state,email,paid,referred_by,referree,image,gender,bitcoin_wallet,date,running_invest,balance,num_of_days,profit,active,has_deposited) values ('$fnamev','$lnamev','$usernamev','$passwordv','$phonev','$statev','$emailv',false, '$referral',0, ' ','$gender','$btc_wallet',now(),0,0,0,0,1,0)";
+    $result = mysqli_query($con,$sql) or die("cant register ".mysqli_error($con));
+    if($result){
+     $sucess = '<div class="alert alert-success text-center">Sucessfully Registered</div>';
+     $ref_link = $url."/signup?user=".$username;
+
+         
+//////////////////////////////////////
+     $subject = "Welcome";
+      $msg2 = "<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title></title>
+  <style type='text/css'>
+    body{
+      margin: 20px;
+    }
+    .head{
+      height: 50px;
+      padding: 20px;
+      background-color: #152238;
+
+    }
+    .body{
+      padding: 20px;
+      background-color: #F8F4E6;
+    }
+    .logo{
+      height: 50px;
+    }
+    .footer{
+      background-color: #152238;
+      height: 100px;
+      color: white;
+      padding: 20px;
+
+    }
+    .block{
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class='head'>
+    $company_logo2
+    
+  </div>
+  <div class='body'>
+    <h2>
+      Hello $username
+
+    </h2>
+   
+    <p class='block'>
+     Welcome to $company_name.
+     <br>
+      We are an international financial company engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders. Our goal is to provide our investors with a reliable source of high income, while minimizing any possible risks and offering a high-quality service, allowing us to automate and simplify the relations between the investors and the trustees. We work towards increasing your profit margin by profitable investment. We look forward to you being part of our community.
+     </p>
+<p class='block'>
+Login Details:<br>
+Password: $password<br>
+Username: $username<br>
+Email: $email<br>
+Affiliate link: $ref_link
+</p>
+
+
+  <div class='footer'>
+    <p>
+      Support is available 24/7  <br>             
+Best Regards, $company_name the
+AU: + <br>
+$company_email
+    </p>
+    
+  </div>
+
+</body>
+</html>
+";
+               
+              //  require "mail.php"; 
+                //return;
+
+
+
+   // $sent = SendMail($email,$subject,$msg);
+    // if($sent){
+    //   echo "<h1>SENTHHHHHHHHHHHHHHHHHHH</h1>";
+    // }else{
+    //    echo "<h1>NOOOOOOOOOOOOOOOOOOOO</h1>";
+
+    // }
+    // echo $email; 
+    // echo $emailv; 
+   ////////////////////////////////////////////////////////////////
+
+
+     
+
+
+    $sql = "select * from members where email = '$email' && password = '$password' ";
+    $result = mysqli_query($con,$sql) or die("cant select ".mysqli_error($con));
+    $checkuser = mysqli_num_rows($result);
+    if($checkuser == 1){
+        while ($row = mysqli_fetch_array($result)) {
+            $_SESSION['id'] = $row['id'];
+             $_SESSION['user'] =$row['username'];
+            // $_SESSION['balance'] =  $row['balance'];
+              $_SESSION['email'] =$row['email'];
+             $_SESSION['phonenumber'] =  $row['phonenumber'];
+            $_SESSION['balance'] = $row['balance'];
+             $_SESSION['state'] =$row['state'];
+              $_SESSION['gender'] =$row['gender'];
+            
+              $_SESSION['referree'] =  $row['referree'];
+               $_SESSION['firstname'] =  $row['firstname'];
+                $_SESSION['password'] =  $row['password'];
+            
+            
+        }
+
+        $id = $_SESSION['id'];
+        $_SESSION['balance'];
+        $user = $_SESSION['user'];
+        $_SESSION['email'];
+        $_SESSION['phonenumber'];
+        $_SESSION['state'];
+        
+          $_SESSION['firstname'];
+          $_SESSION['referree'] ;
+
+
+          //insert into transaction
+
+
+       echo " <script>
+        window.location.href='user/index.php';
+        </script>";
+      }
+
+
+
+///////////////////////////////////////////////////////////////////////////
+  }
+
+
+
+}
+else{
+   $error = '<div class="alert alert-danger text-center">Username or email already exists</div>';
+}
+}
+else{
+   $error = '<div class="alert alert-danger text-center">Invalid email</div>';
+}
+}
+else{
+   $error = '<div class="alert alert-danger text-center"> Please check your country </div>';
+  }
+}else{
+   $error = '<div class="alert alert-danger text-center">Password does not match  </div>';
+  }
+}else{
+   $error = '<div class="alert alert-danger text-center"> Password too weak </div>';
+  }
+}
+
+
+else{
+   $error = '<div class="alert alert-danger text-center">Username  too short </div>';
+}
+
+}
+else{  $error = '<div class="alert alert-danger text-center">Names too short </div>'; 
+}
+}
+
+
+
+
+
+
+
+ ?>
 <!DOCTYPE html> <html class="h-100" lang="en"> 
 <!-- Added by HTTrack -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -122,16 +448,18 @@
                             <div class="auth-content__title auth-content__title_form auth-content__title_flex">
 	Registration
 	</div> 
+    <?php echo  $error ?>
+    <br>
                             <form action="" method="post" class="form validator auth_form"> 
                                                                 
                                 <div class="notifications"> </div>
                                 <div class="field"> 
                                     <label class="field__label field__label_login">Username</label> 
-                                    <input class="field__input" type="text" name="username" value="" required> 
+                                    <input class="field__input" type="text" name="username" value="<?php echo $email ?>" required> 
                                 </div> 
                                 <div class="field"> 
                                     <label class="field__label field__label_email">Mail</label> 
-                                    <input class="field__input" type="text" name="email" value="" required> 
+                                    <input class="field__input" type="text" name="email" value="<?php echo $username ?>" required> 
                                 </div> 
                                 <div class="field"> 
                                     <label class="field__label field__label_password">Password</label> 
@@ -143,13 +471,13 @@
                                 <div class="field"> 
                                     <label class="field__label field__label_password">Repeat password</label> 
                                     <div class="field__wrap"> 
-                                        <input class="field__input" type="password" name="password2" value="" required>
+                                        <input class="field__input" type="password" name="repassword" value="" required>
                                         <a href="#" class="field__showpass"></a> 
                                     </div> 
                                 </div> 
                                 <div class="field"> 
                                     <label class="field__label field__label_login">Referral Username(Optional)</label> 
-                                    <input class="field__input" type="text" name="ref" value="" > 
+                                    <input class="field__input" type="text" name="referral" value="<?php echo $user ?>" > 
                                 </div> 
                                 <div class="checkbox auth-content__checkbox">
                                     <label class="checkbox__label" for="agree">
@@ -165,7 +493,7 @@
                                     </p> <p id="notice" class="hide"></p> 
                                 </div> 
                                 <div class="buttons-row"> 
-                                    <button type="submit" name="create" class="auth-content__button">Register</button> 
+                                    <button type="submit" name="register" class="auth-content__button">Register</button> 
                                     <a class="resend-link underlined-link" href="login">
                                         <span class="underlined-link__wrap">Login</span></a> 
                                 </div> 
