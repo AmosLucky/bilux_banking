@@ -276,10 +276,11 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
               <div class="submenu">
                 <ul class="submenu-item">
                 <li class="nav-item"><a class="nav-link" href="transaction.php">All Transaction</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?d=1">Deposits</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?w=1">Withdrawals</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?t=1">Transfer</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?b=1">Bonuses</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?t=1">Deposits</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?t=2">Withdrawals</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?t=3">Investments</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?t=5">Transfer</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?t=4">Bonuses</a></li>
                 </ul>
               </div>
             </li>

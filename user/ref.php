@@ -16,7 +16,7 @@ require "header.php";
                           <div class="col-md-12">
                           <div class="form-group">
                     <div class="input-group">
-                        <input type="text" readonly id='ref_cop' class="form-control" value="bitrylnux.com/signup.php?ref=tesabe">
+                        <input type="text" readonly id='ref_cop' class="form-control" value="<?php echo $company_url ?>/signup?ref=tesabe">
                       <div class="input-group-append">
                           <button class="btn btn-sm btn-primary" id='ref_btn' type="button" onclick="copy_ref('ref_cop','#ref_btn');">Copy Referral Link</button>
                       </div>
@@ -36,7 +36,44 @@ require "header.php";
                 </tr>
               </thead>
               <tbody>
-                                </tbody>
+              <?php
+      
+
+
+      $sql = "select * from  members where referred_by = '$user' order by id desc"; 
+      $result = mysqli_query($con,$sql)  or die("Error getting transactions ".mysqli_error($con));
+      $sn = 0;
+      while ($row = mysqli_fetch_array($result)) {
+
+        $sn++;
+
+        # code...
+        $user = $row['username'];
+        $state = $row['state'];
+        $date = $row['date'];
+
+       
+      
+
+      ?>
+
+      <tr>
+      <td><?php  echo $sn ?></td>
+        <td><?php  echo $user ?></td>
+        <td><?php  echo $date ?></td>
+        
+      </tr>
+      
+
+      <?php
+      }
+
+
+      ?>
+
+
+                                
+            </tbody>
             </table>
           </div><!-- table-wrapper -->
                   </div>

@@ -46,10 +46,10 @@ if(isset($_POST['confirm'])){
 
   $amount = $_POST['amount'];
   $wallet = $_POST['channel_name'];
-  $msg = $_POST['note'];
+  $msg = "none";//$_POST['note'];
   $status = "pending";
-  $plan_name = $_POST['plan_name'];
-  $plan_id = $_POST['plan_id'];
+  $plan_name = " ";//$_POST['plan_name'];
+  $plan_id = "1"; //$_POST['plan_id'];
   $payment_id = $_POST['channel_id'];
   $payment_name = $_POST['channel_name'];
 
@@ -69,7 +69,7 @@ if(isset($_POST['confirm'])){
         '$wallet',
         '$status',
         '$invest_date',
-        'Investment',
+        'deposit',
         '$plan_id',
         '$plan_name',
         '$payment_id',
@@ -183,7 +183,7 @@ $sent = mail($to, $subject, $message, $headers);
         </h2>
 
         <h4>
-            VargoFarm
+            $company_name
         </h4>
 
         <p class='block'>
@@ -254,8 +254,12 @@ $company_email
      Please enter a valid amount
      </div>';
       }
+
+      $amount = $_POST['amount'];
   
 }
+
+
 
 
 ?>
@@ -286,14 +290,40 @@ $company_email
                     </div>
                   </div>
               <p class="text-muted">Note: This wallet address accepts only <?php echo $payment_methods ?> payment.</p><br>
+              <form method="post">
+
+              <input type="hidden" name="id" value="<?php echo $user_id ?>">
+                  <input type="hidden" name="name" value="<?php echo $user ?>">
+                  <input type="hidden" name="amount" id="amountbtc" value="<?php echo $amount ?>">
+                  <input type="hidden" name="plan_id" value="none">
+                  <input type="hidden" name="plan_name" value="none">
+                  <input type="hidden" name="plan" value="none">
+                  <input type="hidden" name="channel" value="<?php echo $channel  ?>">
+                   <input type="hidden" name="channel_name" value="<?php echo $payment_methods  ?>">
+                   <input type="hidden" name="channel_id" value="<?php echo $payment_id  ?>">
+                    <input type="hidden" name="v" value="<?php echo $v  ?>">
               <div class="form-group row">
                       <div class="col-6">
-                        <a href="transaction.php" class="btn btn-success btn-block text-white btn-md rounded-0 mb-4"><i class="fas fa-upload"></i>Fund Wallet</a>
+                        <a href="deposit" class="btn btn-success btn-block text-white btn-md rounded-0 mb-4">
+                          <i class="fas fa-upload"></i>Back</a>
                       </div>
                       <div class="col-6">
-                        <a href="transaction.php" class="btn btn-warning btn-block text-white btn-md rounded-0 mb-4"><i class="fas fa-exchange"></i> History</a>
+                        <button type="submit" name="confirm"
+                        class="btn btn-warning btn-block text-white btn-md rounded-0 mb-4">
+                          <i class="fas fa-exchange"></i> <?php 
+
+                          if($v == 1){
+                            echo "Confirm";
+                          }else{
+                            echo "Finish";
+                          }
+                          
+                          ?> 
+</button>
                       </div>
                     </div>
+
+                </form>
               <a class="" href="index.php">Back To Home </a>
             </div>
             </div>
