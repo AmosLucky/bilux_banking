@@ -69,7 +69,7 @@ if(isset($_POST['confirm'])){
         '$wallet',
         '$status',
         '$invest_date',
-        'deposit',
+        'Deposit',
         '$plan_id',
         '$plan_name',
         '$payment_id',

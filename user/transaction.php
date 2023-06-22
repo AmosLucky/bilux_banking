@@ -76,7 +76,7 @@ require "header.php";
 
                       }else{
 
-                        $sql = "select * from  transactions where user_id = '$user_id' order by id desc"; 
+                        $sql = "SELECT * from  transactions where user_id = '$user_id' order by id desc"; 
 
                       }
       
@@ -112,7 +112,8 @@ require "header.php";
                                                   
                       <tr>
                             <td><?php  echo $type ?><br>
-                          <small class="d-block mt-2 text-warning"><i class="fa fa-clock-o"></i>
+                          <small class="d-block mt-2 text-warning">
+                            <i class="fa fa-clock-o"></i>
                            <?php  echo $status ?></small>
                           </td>
                           <td class="text-">USD <?php  echo number_format($amount,2) ?></td>

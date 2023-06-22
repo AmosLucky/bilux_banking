@@ -203,7 +203,7 @@ else{echo  $errorn = '<div class="alert alert-danger text-center">Names too shor
 
 
 
-<div class="container-fluid">
+<div class="container mx-5">
     
     <article class="card shadow py-5 px-3">
 

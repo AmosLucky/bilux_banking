@@ -2,7 +2,8 @@
 <?php
 
 session_start();
-require "header.php";
+require 'conn.php';
+
 
 
   $fname = "";
@@ -20,13 +21,15 @@ require "header.php";
 $error = "";
 $sucess = "";
 $ref ="";
+$user = "";
 
 if(isset($_GET['ref'])){
   $_SESSION['ref'] = $_GET['ref'];
   $ref =  $_SESSION['ref'];
+  $user = $_GET['ref'];
 }
 
-$user = "";
+
 if(isset($_GET['user'])){
   $user = $_GET['user'];
 }

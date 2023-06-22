@@ -258,38 +258,36 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                         </div> 
                                         
                                         
-                                                                                
+                                        <?php
+                                $query = "SELECT * FROM transactions where    transaction_type = 'Investment' order by id desc LIMIT 0,5 ";
+                                $result = $con->query($query)or die(mysqli_error($con));
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $username = $row['user_name'];
+                                    $amount = $row['amount'];
+                                    $type = $row['wallet_type'];
+                                    ?>
+                                               
+                                      
                                         <div class="how-it-works__card how-it-works__card_third animate__item animate__item_opacity animate__item_right  animate__item_delay_3"> 
                                             
                                             <div class="how-it-works__description"> 
-                                                <div class="how-it-works__name">tesabe</div> 
+                                                <div class="how-it-works__name"><?php echo $username ?></div> 
                                                 <p class="how-it-works__action">
-										invested <span class="how-it-works__action_marked">$100.00</span>
+										invested <span class="how-it-works__action_marked">$<?php echo number_format($amount) ?></span>
 									</p> 
                                             </div> 
                                         </div> 
+
+
+
+                                        
+      <?php } ?> 
                                         
                                                                                  
-                                        <div class="how-it-works__card how-it-works__card_third animate__item animate__item_opacity animate__item_right  animate__item_delay_3"> 
-                                            
-                                            <div class="how-it-works__description"> 
-                                                <div class="how-it-works__name"></div> 
-                                                <p class="how-it-works__action">
-										invested <span class="how-it-works__action_marked">$100.00</span>
-									</p> 
-                                            </div> 
-                                        </div> 
+                                        
                                         
                                                                                  
-                                        <div class="how-it-works__card how-it-works__card_third animate__item animate__item_opacity animate__item_right  animate__item_delay_3"> 
-                                            
-                                            <div class="how-it-works__description"> 
-                                                <div class="how-it-works__name">Kido</div> 
-                                                <p class="how-it-works__action">
-										invested <span class="how-it-works__action_marked">$456.00</span>
-									</p> 
-                                            </div> 
-                                        </div> 
+                                         
                                         
                                                                                  
                                         
@@ -336,6 +334,33 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                         <div class="tab-content"> 
                             <div id="pills-plans-1" class="scrolling steps__row steps__row_active tab-pane fade active show" role="tabpanel" aria-labelledby="pills-lender-tab"> 
                                 <div class="plans__row row scrolling"> 
+
+
+
+                                <?php
+                       $sql = "SELECT * FROM investment_plans where deleted = '0'";
+                       $result = $con->query($sql);
+                       if($result){ 
+                        $i = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $name = $row['name'];
+              $id = $row['id'];
+              $min =  $row['min_deposite'];
+               $max =  $row['max_deposite'];
+               $profit =  $row['daily_profit'];
+                $name =  $row['name'];
+                $capital_after =  $row['capital_after'];
+                 $profit_after =  $row['profit_after'];
+                 $referal_bonus =  $row['referal_bonus'];
+                  $reg_date =  $row['reg_date'];
+                  $daily_profit =  $row['daily_profit'];
+
+                  $i++;
+
+                            # code...
+                        
+                        ?>
+
                                     
                                                                         
                                     
@@ -343,20 +368,20 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                     <div class="col-md-4 animate__item animate__item_opacity animate__item_top animate__item_delay_2"> 
                                         <div class="plans__item"> 
                                             <div class="plans__name"> 
-                                                <div class="plan-icon plan-icon_c"></div> 
-                                                <h5>PLATINUM PLAN</h5> 
+                                                <!-- <div class="plan-icon plan-icon_c"></div>  -->
+                                                <h5><?php echo $name ?></h5> 
                                             </div> 
                                             <div class="plans__info info-row"> 
                                                 <div class="info-row__label"><span class="icon icon_percent"></span>Referral Bonus</div> 
-                                                <div class="info-row__data info-row__data_marked">10%</div> 
+                                                <div class="info-row__data info-row__data_marked"><?php echo $referal_bonus ?>%</div> 
                                             </div> 
                                             <div class="plans__info info-row"> 
                                                 <div class="info-row__label"><span class="icon icon_period"></span>Investment period</div> 
-                                                <div class="info-row__data">10 Day(s)</div> 
+                                                <div class="info-row__data"><?php echo $capital_after ?> Day(s)</div> 
                                             </div>  
                                             <div class="plans__info info-row"> 
                                                 <div class="info-row__label"><span class="icon icon_profit"></span>Daily profit</div> 
-                                                <div class="info-row__data info-row__data_marked">10.0%</div> 
+                                                <div class="info-row__data info-row__data_marked"><?php echo $profit ?>% </div> 
                                             </div> 
                                             <div class="plans__info info-row"> 
                                                 <div class="info-row__label"><span class="icon icon_month-prof"></span>Total profit:</div> 
@@ -368,15 +393,18 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                             </div> 
                                             <div class="plans__info info-row"> 
                                                 <div class="info-row__label"><span class="icon icon_limits"></span>Investment limits:</div> 
-                                                <div class="info-row__data">$100,000.00 - $1,000,000.00</div> 
+                                                <div class="info-row__data">$<?php echo number_format($min,2) ?> - $<?php echo number_format($max,2) ?></div> 
                                             </div> 
                                         </div> 
                                     </div>
+
+
+                                    <?php } } ?>
                                     
                                     
                                                                         
                                     
-                                    
+<!--                                     
                                     <div class="col-md-4 animate__item animate__item_opacity animate__item_top animate__item_delay_2"> 
                                         <div class="plans__item"> 
                                             <div class="plans__name"> 
@@ -408,8 +436,8 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                                 <div class="info-row__data">$10,000.00 - $100,000.00</div> 
                                             </div> 
                                         </div> 
-                                    </div>
-                                    
+                                    </div> -->
+<!--                                     
                                     
                                                                         
                                     
@@ -446,7 +474,7 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                             </div> 
                                         </div> 
                                     </div>
-                                    
+                                     -->
                                     
                                                                         
                                       

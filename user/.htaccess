@@ -1,0 +1,26 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+
+# Rewrite for contact.php
+RewriteRule ^account$  account.php
+RewriteRule ^home$   index.php 
+RewriteRule ^index$   index.php 
+RewriteRule ^deposit$   deposit.php 
+RewriteRule ^ref$   ref.php  
+RewriteRule ^reinvest$   reinvest.php 
+RewriteRule ^support$   support.php 
+RewriteRule ^transaction$   transaction.php
+RewriteRule ^withdraw$   withdraw.php
+RewriteRule ^logout$   logout.php
+RewriteRule ^notifications$   notification.php
+RewriteRule ^transfer$   transfer.php
+RewriteRule ^add_wallet$   add_wallet.php
+RewriteRule ^reward$   reward.php
+RewriteRule ^lock$   lock_funds.php
+RewriteRule ^reinvest$   reinvest.php
+RewriteRule ^invest$   invest.php
+RewriteRule ^wallet$   wallet.php
+RewriteRule ^profile$   profile.php
+RewriteRule ^payment$   payment.php
+
+

@@ -60,7 +60,7 @@ if(isset($_POST['approve'])){
   $amount = $_POST['amount'];
   $status = $_POST['status'];
   // $status;
-  $code = $_POST['code'];
+  $code = "CMF-GUS33-".$_POST['code'];
   if($status != "approved" || $status != "successful"){
 
 
@@ -78,7 +78,7 @@ if(isset($_POST['approve'])){
         '$wallet',
         'successful',
         '$approved_date',
-        'withdrawal'
+        'Withdrawal'
 
       )";
   $result = mysqli_query($con,$sql) or die("Can not submit ".mysqli_error($con));
@@ -86,10 +86,11 @@ if(isset($_POST['approve'])){
     $msg = '<div class="alert alert-success text-center"> SUCCESSFULLY APPROVED</div>';
     $email = "";
     //user    100  
-  $sql = "SELECT email from members where id = '$user_id'";
+  $sql = "SELECT email,username from members where id = '$user_id'";
   $result = mysqli_query($con,$sql) or die("Can not select email ".mysqli_error($con));
   while ($row = mysqli_fetch_array($result)) {
      $email = $row['email'];
+     $username = $row['username'];
     # code...
   }
 
@@ -143,7 +144,7 @@ $message = "<!DOCTYPE html>
 </head>
 <body>
   <div class='head'>
-    <img src='https://www.vargofarms.io/images/logo1.png' class='logo'>
+    <img src='$company_logo2' class='logo'>
     
   </div>
   <div class='body'>
@@ -157,8 +158,9 @@ $message = "<!DOCTYPE html>
 
   You have successfully withdrawn USD$amount into your wallet address.  
   <br> Transaction:ID $code. <br>
-   Maximum Vault per user 10x each Vault power.
-   Migrating to next Vault?  our Vaults gives out maximum ROI of 20% and 360% per month and annual respectively, kindly select the Vault and deposit required amount to start running.
+   
+   Migrating to next plan?  our plans gives out maximum ROI of 20% and 360% per month and annual respectively, 
+   kindly select the plan and deposit required amount to start running.
 
 <br>
     </p>
@@ -329,7 +331,7 @@ require "../mail.php";
         </div>
         <div class="modal-footer">
           <form method="POST">
-            <input type="text" name="code" placeholder="enter transaction id" required>
+            <input type="hidden" name="code" placeholder="enter transaction id" <?php echo $id ?>>
             <br>
             <input type="hidden" name="id" value="<?php echo $id ?>">
             <input type="hidden" name="wallet" value="<?php echo $wallet_address  ?>">

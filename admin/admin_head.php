@@ -110,13 +110,7 @@ include '../conn.php';
           <span>Create Users</span></a>
       </li>
 
-       <hr class="sidebar-divider">
-      <li class="nav-item ">
-        <a class="nav-link" href="penalised_users.php">
-        <!--   <i class="fa fa-users" aria-hidden="true"></i> -->
-
-          <span>Penalised user</span></a>
-      </li>
+      
 
 
       <!-- Divider -->
@@ -129,6 +123,14 @@ include '../conn.php';
         <a class="nav-link" href="investors.php">
           <!-- <i class="fa fa-users" aria-hidden="true"></i> -->
           <span>Investors</span></a>
+      </li>
+
+      <hr class="sidebar-divider">
+      <li class="nav-item ">
+        <a class="nav-link" href="deposit_request.php">
+        <!--   <i class="fa fa-users" aria-hidden="true"></i> -->
+
+          <span>Deposit Request</span></a>
       </li>
 
       <!-- Divider -->
@@ -148,6 +150,13 @@ include '../conn.php';
         <a class="nav-link" href="withdrawal_requests.php">
        <!-- <i class="fa fa-credit-card" aria-hidden="true"></i> -->
           <span>Withdrawal Requests</span></a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link" href="penalised_users.php">
+        <!--   <i class="fa fa-users" aria-hidden="true"></i> -->
+
+          <span>Penalised user</span></a>
       </li>
 
       <!-- Nav Item - Tables -->

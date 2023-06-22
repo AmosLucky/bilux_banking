@@ -1,7 +1,86 @@
 <?php
-require "header.php";
+include "header.php";
 
-?>
+$error = "";
+
+            if(isset($_POST['update_password'])){
+
+              $old_password = $_POST['old_password'];
+              $new_password = $_POST['new_password'];
+              $confirm = $_POST['new_passwordv'];
+
+              if(strlen($new_password) > 5 && strlen($confirm) > 5){
+
+                if($new_password == $confirm){
+
+                  $sql = "select * from members WHERE id = '$user_id' && password = '$old_password'";
+                   $result = mysqli_query($con,$sql)  or die("Error getting transactions ".mysqli_error($con));
+
+                   $num = mysqli_num_rows($result);
+
+                   if($num == 1){
+
+                    $sql = "UPDATE members set password = '$new_password' WHERE id = '$user_id'";
+                   $result = mysqli_query($con,$sql)  or die("Error getting transactions ".mysqli_error($con));
+                   if($result){
+
+                  
+     $error = '<div class="alert alert-success text-center">
+    Your password has been changed successfully
+
+     </div>';
+
+      ///// to do errorr///////
+
+    }
+
+
+
+
+                   }else{
+     $error = '<div class="alert alert-danger text-center">
+   Error: The old password You entered is incorrect 
+
+     </div>';
+
+      ///// to do errorr///////
+
+    }
+
+
+
+                   }else{
+     $error = '<div class="alert alert-danger text-center">
+     Error: Password does not match its comfirmation
+
+     </div>';
+
+      ///// to do errorr///////
+
+    }
+
+
+
+                }else{
+     $error = '<div class="alert alert-danger text-center">
+   
+    Password must be greater than 5 characters
+
+     </div>';
+
+      ///// to do errorr///////
+
+    }
+
+
+
+              }
+
+
+
+
+
+            ?>
                   <div class="row mb-3">
           <div class="col-md-8">
           <div class="card card-body pd-20 mg-t-10">
@@ -13,11 +92,11 @@ require "header.php";
                   
               <div class="form-group">
                   <label class="form-control-label">Username(Not editable): <span class="tx-danger"></span></label>
-                  <input type="text" class="form-control" disabled value="tesabe">
+                  <input type="text" class="form-control" disabled value="<?php echo $user ?>">
               </div><!-- form-group -->
               <div class="form-group">
-                  <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
-                <input type="email" value="tesabe@gmail.com" name='email' class="form-control">
+                  <label class="form-control-label">Email(Not editable): <span class="tx-danger">*</span></label>
+                <input type="email" value="<?php echo $email ?>" disabled name='email' class="form-control">
               </div><!-- form-group -->
               <div class="form-group">
                   <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
@@ -280,13 +359,15 @@ require "header.php";
               <div class=" col-md-4">
           <div class="card card-body pd-20 mg-t-10">
               <h3 class="card-title">Change Password</h3>
-              <p><small class="card-description">
-                    Basic form layout
-                      </small></p>
+              <p>
+              <?php
+                    echo $error
+                    ?>
+                      </p>
               <form action="" method="post">
               <div class="form-group">
                   <label class="form-control-label">Old Password: <span class="tx-danger">*</span></label>
-                <input type="password" name='password' class="form-control" placeholder="Enter Old Password">
+                <input type="password" name='old_password' class="form-control" placeholder="Enter Old Password">
               </div><!-- form-group -->
               <div class="form-group">
                   <label class="form-control-label">New Password: <span class="tx-danger">*</span></label>
@@ -294,7 +375,7 @@ require "header.php";
               </div><!-- form-group -->
               <div class="form-group">
                   <label class="form-control-label">Repeat New Password: <span class="tx-danger">*</span></label>
-                <input type="password" name='new_password_retype' class="form-control" placeholder="Repeat New Password">
+                <input type="password" name='new_passwordv' class="form-control" placeholder="Repeat New Password">
               </div><!-- form-group -->
               <button class="btn btn-success btn-block" name='update_password' type="submit">Update</button>
               </form>

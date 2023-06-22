@@ -151,7 +151,7 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Dashboard | tesabe </title>
+  <title>Dashboard | <?php echo $user ?> </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -205,8 +205,8 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
       <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container">
           <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-              <a class="navbar-brand brand-logo" href="index.php"><img src="../images/logo.png" alt="logo"/></a>
-              <a class="navbar-brand brand-logo-mini" href="index.php"><img style="width: 100px; height: auto;" src="../images/logo.png"/></a>
+              <a class="navbar-brand brand-logo" href="index"><img src="../images/logo.png" alt="logo"/></a>
+              <a class="navbar-brand brand-logo-mini" href="index"><img style="width: 100px; height: auto;" src="../images/logo.png"/></a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             
@@ -218,11 +218,11 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
                     <ion-icon name="person-circle-outline"></ion-icon>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                  <a href="profile.php" class="dropdown-item">
+                  <a href="profile" class="dropdown-item">
                     <ion-icon name="settings-outline"></ion-icon>
                     Settings
                   </a>
-                  <a href="logout.php" class="dropdown-item">
+                  <a href="logout" class="dropdown-item">
                     <ion-icon name="log-in-outline"></ion-icon>
                     Logout
                   </a>
@@ -239,31 +239,31 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
         <div class="container">
           <ul class="nav page-navigation">
             <li class="nav-item">
-              <a class="nav-link" href="index.php">
+              <a class="nav-link" href="index">
                 <ion-icon name="home-outline"></ion-icon>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="deposit.php">
+              <a class="nav-link" href="deposit">
                 <ion-icon name="arrow-up-circle-outline"></ion-icon>
                 <span class="menu-title">Fund wallet</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="invest.php">
+              <a class="nav-link" href="invest">
                 <ion-icon name="add-circle-outline"></ion-icon>
                 <span class="menu-title">Invest</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="withdraw.php">
+              <a class="nav-link" href="withdraw">
                 <ion-icon name="arrow-down-circle-outline"></ion-icon>
                 <span class="menu-title">Withdraw</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="transfer.php">
+              <a class="nav-link" href="transfer">
                 <ion-icon name="swap-horizontal-outline"></ion-icon>
                 <span class="menu-title">Transfer</span>
               </a>
@@ -275,12 +275,12 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
                 <i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                <li class="nav-item"><a class="nav-link" href="transaction.php">All Transaction</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?t=1">Deposits</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?t=2">Withdrawals</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?t=3">Investments</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?t=5">Transfer</a></li>
-                <li class="nav-item"><a class="nav-link" href="transaction.php?t=4">Bonuses</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction">All Transaction</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction?t=1">Deposits</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction?t=2">Withdrawals</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction?t=3">Investments</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction?t=5">Transfer</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction?t=4">Bonuses</a></li>
                 </ul>
               </div>
             </li>
@@ -292,10 +292,10 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
                 <i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                <li class="nav-item"><a class="nav-link" href="profile.php">My Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="wallet.php">My Wallet</a></li>
-                <li class="nav-item"><a class="nav-link" href="ref.php?w=1">My Referral</a></li>
-                <li class="nav-item"><a class="nav-link" href="logout.php">Sign Out</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile">My Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="wallet">My Wallet</a></li>
+                <li class="nav-item"><a class="nav-link" href="ref?w=1">My Referral</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout">Sign Out</a></li>
                 </ul>
               </div>
             </li>

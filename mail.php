@@ -14,7 +14,7 @@ try {
     $mail->isSMTP();                                            
     $mail->Host  = "ssl://smtp.titan.email";                 
     $mail->SMTPAuth = true;                         
-    $mail->Username = "support@vargofarms.io";               
+    $mail->Username = "support@vargofarmsrrrr.io";               
     $mail->Password = 'vargofarms@gmail.com';                       
     $mail->SMTPSecure = 'tls';                          
     $mail->Port  = 465;

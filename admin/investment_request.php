@@ -242,7 +242,7 @@ $result = mysqli_query($con,$sql) or die("Cant approve ".mysqli_error($con));
 </head>
 <body>
   <div class='head'>
-    <img src='https://www.vargofarms.io/images/logo1.png' class='logo'>
+    <img src='$company_logo2' class='logo'>
     
   </div>
   <div class='body'>
@@ -366,7 +366,7 @@ $company_email
     <tbody>
      <?php  
 
-     $sql = "SELECT * from transactions  where status = 'pendding' || status = 'pending' order by id desc";
+     $sql = "SELECT * from transactions  where status = 'pendding' || status = 'pending' and transaction_type = 'Investment' order by id desc";
       $sn = 1;
      $result = mysqli_query($con,$sql) or die("cant select transactions ".mysqli_error($con));
      while ($row = mysqli_fetch_array($result)) {
