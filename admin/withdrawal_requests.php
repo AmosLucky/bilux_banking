@@ -160,7 +160,7 @@ $message = "<!DOCTYPE html>
   <br> Transaction:ID $code. <br>
    
    Migrating to next plan?  our plans gives out maximum ROI of 20% and 360% per month and annual respectively, 
-   kindly select the plan and deposit required amount to start running.
+   kindly select a plan and deposit required amount to start running.
 
 <br>
     </p>

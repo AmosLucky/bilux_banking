@@ -133,7 +133,7 @@ $sent = mail($to, $subject, $message, $headers);
 
 //////////////////////////////////////
 
-     $subject = "Investment request ";
+     $subject = "Deposit request ";
       $msg2 = "<!DOCTYPE html>
 <html>
 <head>

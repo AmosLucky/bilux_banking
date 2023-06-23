@@ -259,7 +259,15 @@ $result = mysqli_query($con,$sql) or die("Cant approve ".mysqli_error($con));
     <p class='block'>
       
 <br>
-    Your deposit have been successfully approved , <br> you can now invest in a any plan of your choic <br> .
+We are thrilled to inform you that your investment proposal
+<br>
+ has been carefully reviewed and approved by our investment 
+ <br>
+ committee. Congratulations on becoming an official partner 
+ <br>
+ in our journey towards unparalleled growth and success!
+
+
     </p>
 
     

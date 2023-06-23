@@ -14,6 +14,10 @@ $result = mysqli_query($con,$sql) or die("Cant delete ".mysqli_error($con));
 
 }
 
+$sql_1 = "SELECT * from members";
+
+$res = mysqli_query($con,$sql_1) or die("cant select members ".mysqli_error($con));
+
 ?>
 
 
@@ -44,6 +48,7 @@ $result = mysqli_query($con,$sql) or die("Cant delete ".mysqli_error($con));
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
+              <h2>Total users: <?php echo number_format(mysqli_num_rows($res)) ?></h2>
             </div>
             <div class="card-body">
               <div class="table-responsive">

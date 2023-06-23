@@ -261,9 +261,9 @@ require "header.php";
                       <ion-icon class="text-success" name="arrow-down-circle-outline"></ion-icon>
                     <p class="card-title mb-1">Total Deposits</p>
                   </div>
-                  <h4 class="mb-2 mt-1">$ 0.00</h4>
+                  <h4 class="mb-2 mt-1">$ <?php echo number_format($total_deposit,2) ?></h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <!-- <p class="mb-0 text-warning">0.0000 BTC</p> -->
                     
                   </div>
                 </div>
@@ -279,9 +279,9 @@ require "header.php";
                       <ion-icon class="text-success" name="add-circle-outline"></ion-icon>
                     <p class="card-title mb-1">Total Investments</p>
                   </div>
-                  <h4 class="mb-2 mt-1">$ 0.00</h4>
+                  <h4 class="mb-2 mt-1">$ <?php echo number_format($total_invest,2) ?></</h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <!-- <p class="mb-0 text-warning">0.0000 BTC</p> -->
                     
                   </div>
                 </div>
@@ -297,9 +297,9 @@ require "header.php";
                       <ion-icon class="text-warning" name="arrow-up-circle-outline"></ion-icon>
                     <p class="card-title mb-1">Total Withdrawals</p>
                   </div>
-                  <h4 class="mb-2 mt-1">$ <?php  echo number_format($running_invest,2) ?></h4>
+                  <h4 class="mb-2 mt-1">$ <?php  echo number_format($total_withdrawn,2) ?></h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <!-- <p class="mb-0 text-warning">0.0000 BTC</p> -->
                     
                   </div>
                 </div>
@@ -315,9 +315,9 @@ require "header.php";
                       <ion-icon class="text-danger" name="gift-outline"></ion-icon>
                     <p class="card-title mb-1">BONUS &#127873;</p>
                   </div>
-                  <h4 class="mb-2 mt-1">$  <?php echo $blocked_reward.".0"  ?></h4>
+                  <h4 class="mb-2 mt-1">$ <?php  echo number_format($total_ref_bonus,2) ?></h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <!-- <p class="mb-0 text-warning">0.0000 BTC</p> -->
                     
                   </div>
                 </div>
@@ -336,7 +336,7 @@ require "header.php";
                   </div>
                   <h4 class="mb-2 mt-1">$ <?php  echo number_format($referral_balance,2) ?></h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <!-- <p class="mb-0 text-warning">0.0000 BTC</p> -->
                     
                   </div>
                 </div>

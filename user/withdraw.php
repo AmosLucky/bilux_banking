@@ -178,7 +178,7 @@ $company_email
 ";
  $msg2 = $message; 
 //mail($to, $subject, $message, $headers);
-//require "../mail.php"; 
+require "../mail.php"; 
  
  
  //////////////////////////////////// end ///////////////////////////////

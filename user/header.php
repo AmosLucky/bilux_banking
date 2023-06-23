@@ -14,6 +14,10 @@ $etherum_address =  "";
 $pendding_balance =  0.00;
 $approved_balance = 0.00;
 $total_withdrawn = 0.00;
+$total_deposit = 0.00;
+$total_invest = 0.00;
+$total_ref_bonus = 0.00;
+
 $running_invest = 0.00;
 $referral_balance = 0.00;
 $profit = 0.00;
@@ -100,18 +104,49 @@ $sql = "SELECT * FROM members WHERE id =  '$user_id'";
 
     $pendding_balance = 0;
 
-    $sql = "Select * from transactions where user_id = '$user_id' && status = 'pending'";
+    $sql = "Select * from transactions where user_id = '$user_id'";
     $result = mysqli_query($con,$sql) or die("Cant get balance ".mysqli_error($con));
     while ($row = mysqli_fetch_array($result)) {
-       $pendding_balance += floatval($row['amount']);
+       $transaction_type = $row['transaction_type'];
+       if($transaction_type == "pending"){
+        $pendding_balance += floatval($row['amount']);
+       }
+
+      if($transaction_type == "Withdrawal"){
+        $total_withdrawn += floatval($row['amount']);
+
+        
+      }
+
+      if($transaction_type == "Deposit"){
+        $total_deposit += floatval($row['amount']);
+
+        
+      }
+
+      if($transaction_type == "Investment"){
+        $total_invest += floatval($row['amount']);
+
+        
+      }
+
+      if($transaction_type == "Bonus"){
+        $total_ref_bonus += floatval($row['amount']);
+
+        
+      }
+
+
+
+     
     }
 
-    $sql = "Select * from transactions where user_id = '$user_id' && status = 'successful' && transaction_type = 'withdrawal'";
+   // $sql = "Select * from transactions where user_id = '$user_id' && status = 'successful' && transaction_type = 'withdrawal'";
 
-    $result = mysqli_query($con,$sql) or die("Cant get balance ".mysqli_error($con));
-    while ($row = mysqli_fetch_array($result)) {
-       $total_withdrawn += floatval($row['amount']);
-    }
+    // $result = mysqli_query($con,$sql) or die("Cant get balance ".mysqli_error($con));
+    // while ($row = mysqli_fetch_array($result)) {
+    //    $total_withdrawn += floatval($row['amount']);
+    // }
 
 
     ///////////////SELECT RUNNING INVESTMENT AND PROFIT////////////////////

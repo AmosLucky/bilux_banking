@@ -262,7 +262,15 @@ $result = mysqli_query($con,$sql) or die("Cant approve ".mysqli_error($con));
       
 <br>
     Your investment have been successfully approved , <br> you are
-currently mining in $plan_name with ROI of $roi %  after 20days, <br> capital investment is withdrawn after 30days whereas to ROI is done after 20days.
+currently mining in $plan_name with ROI of $roi %  .
+<br>
+<br>
+<br>
+Your belief in our vision and commitment to innovation is truly appreciated. 
+<br>
+With your investment, we can accelerate our efforts and take our business to new heights. 
+<br>
+Together, we will revolutionize the industry and make a lasting impact.
     </p>
 
     
