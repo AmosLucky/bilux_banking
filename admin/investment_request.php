@@ -242,7 +242,7 @@ $result = mysqli_query($con,$sql) or die("Cant approve ".mysqli_error($con));
 </head>
 <body>
   <div class='head'>
-    <img src='$company_logo2' class='logo'>
+    <img src='$company_logo2'>
     
   </div>
   <div class='body'>

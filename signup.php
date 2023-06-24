@@ -222,7 +222,7 @@ Login Details:<br>
 Password: ******<br>
 Username: $username<br>
 Email: $email<br>
-Affiliate link: $ref_link
+
 </p>
 
 

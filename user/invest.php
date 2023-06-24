@@ -91,20 +91,94 @@ $amount = $_POST['amount'];
 
   if($result){
 
-        $msg2 = "
-<div style='padding: 10px; background-color: black; color: white;height: 300px'>
-  <p style='color: yellow'><b>$company_name</b></p>
-  <hr style='color: white'>
-  <p>Hello $username, your Investment of  USD $amount is waiting approval;
-    <br>
-    Check your running investment(s) from time to time <br>
-    to see how your profit is increasing. <br>
-    if you have any question<br>
-    contact our support for assistance
-  </p>
-  
-</div>
-";
+    $subject = "Investment";
+
+    $msg2 = "<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset='utf-8'>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <title></title>
+      <style type='text/css'>
+        body{
+          margin: 20px;
+        }
+        .head{
+          height: 50px;
+          padding: 20px;
+          background-color: #152238;
+    
+        }
+        .body{
+          padding: 20px;
+          background-color: #F8F4E6;
+        }
+        .logo{
+          height: 50px;
+        }
+        .footer{
+          background-color: #152238;
+          height: 100px;
+          color: white;
+          padding: 20px;
+    
+        }
+        .block{
+          margin-top: 5px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class='head'>
+        $company_logo2
+        
+      </div>
+      <div class='body'>
+        <h2>
+          Hello $username
+    
+        </h2>
+       
+        <p class='block'>
+         Welcome to $company_name.
+         
+
+         </p>
+         Your investment of USD$amount is waiting approval.
+
+
+         <p>
+         <br>
+         We appreciate your interest and the time you have taken to submit your investment request.
+         <br>
+
+We understand that you are eagerly awaiting approval for your investment, 
+<br>
+and we want to assure you that our team is carefully reviewing your request. 
+<br>
+Thank you for investing with our company.
+
+
+
+    
+    
+         </p>
+    
+    
+    
+      <div class='footer'>
+        <p>
+          Support is available 24/7  <br>             
+    Best Regards, $company_name the
+    AU: + <br>
+    $company_email
+        </p>
+        
+      </div>
+    
+    </body>
+    </html>
+    ";
 
 
     // SendMail($email,"Payment approved",$msg2);
@@ -253,7 +327,7 @@ $referal_bonus = $row['referal_bonus'];
 $id = $row['id'];
 
  ?>
-<option value="<?php echo $id."-".($min)."-".$name."-".($max)."-".($profit)."-".$referal_bonus."-".number_format($min)."-".number_format($max) ?>"><?php echo $name." $($min - $max)" ?></option>
+<option value="<?php echo $id."-".($min)."-".$name."-".($max)."-".($profit)."-".$referal_bonus."-".number_format($min)."-".number_format($max) ?>"><?php echo $name ?></option>
 
 
 <?php  } ?>

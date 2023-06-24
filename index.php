@@ -307,6 +307,32 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                             <div class="how-it-works__decor-item"></div> 
                                             <div class="how-it-works__decor-item"></div> 
                                         </div> 
+
+
+                                        <?php
+                                $query = "SELECT * FROM transactions where    transaction_type = 'Withdrawal' order by id desc LIMIT 0,5 ";
+                                $result = $con->query($query)or die(mysqli_error($con));
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $username = $row['user_name'];
+                                    $amount = $row['amount'];
+                                    $type = $row['wallet_type'];
+                                    ?>
+                                               
+                                      
+                                        <div class="how-it-works__card how-it-works__card_third animate__item animate__item_opacity animate__item_right  animate__item_delay_3"> 
+                                            
+                                            <div class="how-it-works__description"> 
+                                                <div class="how-it-works__name"><?php echo $username ?></div> 
+                                                <p class="how-it-works__action">
+										Withdrew <span class="how-it-works__action_marked">$<?php echo number_format($amount) ?></span>
+									</p> 
+                                            </div> 
+                                        </div> 
+
+
+
+                                        
+      <?php } ?> 
                                         
                                         
                                                                                 
@@ -385,7 +411,7 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                             </div> 
                                             <div class="plans__info info-row"> 
                                                 <div class="info-row__label"><span class="icon icon_month-prof"></span>Total profit:</div> 
-                                                <div class="info-row__data">100%</div> 
+                                                <div class="info-row__data"><?php echo $profit * $capital_after ?>%</div> 
                                             </div> 
                                             <div class="plans__info info-row"> 
                                                 <div class="info-row__label"><span class="icon icon_depo"></span>Deposit :</div> 
