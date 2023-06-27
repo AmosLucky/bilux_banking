@@ -199,23 +199,10 @@ $reg_date = date("d-m-Y");
     <p class='block'>
      Welcome to $company_name.
      <br>
-     We're thrilled to have you join our community of savvy investors.
-     <br>
-      At $company_name, we're dedicated to helping you navigate the world
-      <br>
-       of investments and make informed decisions to grow your wealth.
-       <br>
-       <br>
+     Thank you for creating account on our website, 
+     login to proceed to your dashboard.
+      
 
-Whether you're a seasoned investor or just starting your investment 
-<br>
-journey, our platform offers a wealth of resources and tools
-<br>
- to assist you every step of the way. From market analysis and 
- <br>
- expert insights to portfolio management and educational materials,
- <br>
-  we're here to empower you to achieve your financial goals.
      </p>
 <p class='block'>
 Login Details:<br>
@@ -518,13 +505,14 @@ else{  $error = '<div class="alert alert-danger text-center">Names too short </d
                                 </div> 
                             </form>
                         </div> 
+                        
                         <footer class="footer footer-auth"> 
                             <ul class="auth-navigation"> 
                                 <li class="auth-navigation__item">
                                     <a class="auth-navigation__link" href="index.php">Home</a>
                                 </li> 
                                 <li class="auth-navigation__item">
-                                    <a class="auth-navigation__link" href="tutorial">User guides</a>
+                                    <a class="auth-navigation__link" href="#">User guides</a>
                                 </li> 
                                 <li class="auth-navigation__item">
                                     <a class="auth-navigation__link" href="contact">Help Center</a>

@@ -94,7 +94,7 @@ Invest easily and quickly in <span>stocks, ETFs and crypto.</span>
                                 <div class="how-it-works__col animate__item animate__item_opacity animate__item_top"> 
                                     <div class="how-it-works__text"> 
                                     <div class="video"> 
-                            <img src="img/about.png" alt="png"> 
+                            <!-- <img src="img/about.png" alt="png">  -->
                         </div>
                                         <h3>About Us</h3> 
                                         <p>Our drive: to give all people the opportunity to consciously determine their own financial future.

@@ -302,7 +302,7 @@ $error = "";
                                     <a class="auth-navigation__link" href="index">Home</a>
                                 </li> 
                                 <li class="auth-navigation__item">
-                                    <a class="auth-navigation__link" href="tutorial">User guides</a>
+                                    <a class="auth-navigation__link" href="#">User guides</a>
                                 </li> 
                                 <li class="auth-navigation__item">
                                     <a class="auth-navigation__link" href="contact">Help Center</a>

@@ -186,7 +186,7 @@ Thank you for investing with our company.
 /////////////////////////////////
 
 $to = $email; // enter the users email here
-$subject = 'Investment Approved';
+$subject = 'Investment ';
 $from =  $company_email; /// enter the email of you host example admin@netbaba.com
  
 // To send HTML mail, the Content-type header must be set
