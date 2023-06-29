@@ -166,7 +166,8 @@ $sn++;
 
                                 </tbody>
             </table>
-          </div><!-- table-wrapper -->
+          </div>
+          <!-- table-wrapper -->
         </div>
                 </div>
               </div>

@@ -54,7 +54,7 @@ if(isset($_POST['withdraw'])){
 
     ////// do insert ///////////
 
-    $sql = "INSERT INTO requests (user_id,user_name, amount, status, request_date,balance,address,address_type)
+    $sql = "INSERT INTO transactions (user_id,user_name, amount, status, invest_date,name,address,wallet_type,transaction_type)
     VALUES(
     '$user_id',
     '$username',
@@ -63,7 +63,8 @@ if(isset($_POST['withdraw'])){
     '$request_date',
     '$balance',
     '$wallet_address',
-    '$address_type'
+    '$address_type',
+    'Withdrawal'
     )
     ";
 
@@ -132,7 +133,7 @@ $message = "<!DOCTYPE html>
 </head>
 <body>
     <div class='head'>
-        <img src='$company_logo2' class='logo'>
+       $company_logo2
         
     </div>
     <div class='body'>

@@ -46,36 +46,42 @@ $error = "";
             /////////////////////////////NORMAL LOGIN//////////
 
               if($isAdmin == 2){
-                $_SESSION['admin_id'] = $row['id'];
-             $_SESSION['admin2'] =$row['username'];
-              $id = $_SESSION['admin_id'];
-                $_SESSION['admin2'];
+    //             $_SESSION['admin_id'] = $row['id'];
+    //          $_SESSION['admin2'] =$row['username'];
+    //           $id = $_SESSION['admin_id'];
+    //             $_SESSION['admin2'];
         
 
 
-          //insert into transaction
+    //       //insert into transaction
 
 
-       echo " <script>
-        window.location.href='super';
-        </script>";
+    //    echo " <script>
+    //     window.location.href='super';
+    //     </script>";
+    $error = '<div class="alert alert-danger text-center">
+    No User found with this username and password
+    </div>';
 
 
 
     }else if($isAdmin == 1){
-          $_SESSION['admin_id'] = $row['id'];
-             $_SESSION['admin'] =$row['username'];
-              $id = $_SESSION['admin_id'];
-                $_SESSION['admin'];
+    //       $_SESSION['admin_id'] = $row['id'];
+    //          $_SESSION['admin'] =$row['username'];
+    //           $id = $_SESSION['admin_id'];
+    //             $_SESSION['admin'];
         
 
 
-          //insert into transaction
+    //       //insert into transaction
 
 
-       echo " <script>
-        window.location.href='admin';
-        </script>";
+    //    echo " <script>
+    //     window.location.href='admin';
+    //     </script>";
+    $error = '<div class="alert alert-danger text-center">
+    No User found with this username and password
+    </div>';
     }else{
              
              $_SESSION['id'] = $row['id'];
