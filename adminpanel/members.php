@@ -50,6 +50,7 @@ if(isset($_GET['type'])){
                  
                   <th>Balance</th>
                   <th>Status</th>
+                  <th>Referral</th>
                   <th>View</th>
                 </tr>
                 </thead>
@@ -76,7 +77,7 @@ while ($row = mysqli_fetch_array($result)) {
    if($active = "1"){
     $status_widget = '<span class="label label-success ">Active</span>';
    }else{
-    $status_widget = '<span class="label label-warnign">Dective</span>';
+    $status_widget = '<span class="label label-warnign">Deactive</span>';
 
    }
 
@@ -87,8 +88,10 @@ while ($row = mysqli_fetch_array($result)) {
         <td><?php echo $username; ?></td>
         <td><?php echo $email; ?></td>
        
-        <td><?php echo round($balance,3); ?></td>
+        <td>$<?php echo round($balance,3); ?></td>
         <td><?php echo $status_widget; ?></td>
+        
+        <td><?php echo $referred_by; ?></td>
         
            <td>
            <a class="btn  btn-primary" href="user_details.php?v=<?php echo $id   ?>">View</a>
@@ -105,6 +108,7 @@ while ($row = mysqli_fetch_array($result)) {
                   <th>Email</th>
                   <th>Balance</th>
                   <th>Status</th>
+                  <th>Referral</th>
                   <th>View</th>
                 </tr>
                 </tfoot>

@@ -141,7 +141,8 @@ $reg_date = date("d-m-Y");
 //   }
 
 
-  $sql = "insert into members (firstname, lastname,username, password,phonenumber,state,email,paid,referred_by,referree,image,gender,bitcoin_wallet,date,running_invest,balance,num_of_days,profit,active,has_deposited) values ('$fnamev','$lnamev','$usernamev','$passwordv','$phonev','$statev','$emailv',false, '$referral',0, ' ','$gender','$btc_wallet',now(),0,0,0,0,1,0)";
+  $sql = "insert into members (firstname, lastname,username, password,phonenumber,state,email,paid,referred_by,referree,image,gender,bitcoin_wallet,date,running_invest,balance,num_of_days,profit,active,has_deposited) 
+  values ('$fnamev','$lnamev','$usernamev','$passwordv','$phonev','$statev','$emailv',false, '$referral',0, ' ','$gender','$btc_wallet',now(),0,0,0,0,1,0)";
     $result = mysqli_query($con,$sql) or die("cant register ".mysqli_error($con));
     if($result){
      $sucess = '<div class="alert alert-success text-center">Sucessfully Registered</div>';

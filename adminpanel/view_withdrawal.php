@@ -72,7 +72,7 @@ if(isset($_POST['approve'])){
     $amount = $_POST['amount'];
     $status = $_POST['status'];
     // $status;
-    $code = "CMF-GUS33-".$_POST['user_id'];
+    $code = $id."CMF-GUS33-".$_POST['user_id'];
     if($status != "approved" || $status != "successful"){
   
   
@@ -143,7 +143,7 @@ if(isset($_POST['approve'])){
   </head>
   <body>
     <div class='head'>
-      <img src='$company_logo2' class='logo'>
+      $company_logo2
       
     </div>
     <div class='body'>
@@ -158,8 +158,7 @@ if(isset($_POST['approve'])){
     You have successfully withdrawn USD$amount into your wallet address.  
     <br> Transaction:ID $code. <br>
      
-     Migrating to next plan?  our plans gives out maximum ROI of 20% and 360% per month and annual respectively, 
-     kindly select a plan and deposit required amount to start running.
+   
   
   <br>
       </p>

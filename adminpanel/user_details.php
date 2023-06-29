@@ -112,9 +112,21 @@ $running_invest = $row['running_invest'];
 
                 </div>
 
+
+            </div>
+
+        </div>
+        <div>
+            <!-- /.row -->
+
+            <div class="row mb-3">
+            <div class="container"
+                style="display: flex; justify-content: space-between;width:100%">
+              
+
                 <div>
 
-                    <a href>
+                    <a href="add_bonus.php?v=<?php echo $id ?>&n=<?php echo $username ?>">
                         <button type="submit" name
                             class="btn btn-success">Bonus</button>
                     </a>
@@ -132,7 +144,7 @@ $running_invest = $row['running_invest'];
 
         </div>
         <div>
-            <!-- /.row -->
+            <!---ned -->
 
             <div class="row mb-3">
                 <div class="col-xl-6">

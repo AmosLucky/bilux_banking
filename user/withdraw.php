@@ -148,16 +148,14 @@ $message = "<!DOCTYPE html>
         </h2>
 
         <p class='block'>
-            <b>WithdrawaL approved </b>
+            <b>Withdrawal </b>
             <br>
 
 Hello $username,
 <br>
-  Your Withdrawal request is approved,
-  <br>
-payment of USD$amount in $type is sent to your $wallet_address Effectively.
+ 
+Your request for withdrawal of USD$amount in $type will be shortly approved.
 <br>
-Migrating to next Vault? Our Vaults gives out maximum payout on on high efficient hashrate from V1 - V4 maximum payout of 20%.
 <br>
         </p>
 
