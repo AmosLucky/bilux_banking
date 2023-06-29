@@ -363,7 +363,7 @@ while ( $row1 = mysqli_fetch_array($result1)) {
               <input type="hidden" name="plan_name" value="<?php echo $plan_name ?>">
                <input type="hidden" name="plan_id" value="<?php echo $plan_id ?>">
                <input name="status"  type="hidden"  value="<?php echo $status ?>">
-          <button class="btn btn-info" type="submit"  name="approve">Approve Deposit </button>
+          <button class="btn btn-info" type="submit"  name="approve">Approve Withdrawal </button>
           </form>
 
                

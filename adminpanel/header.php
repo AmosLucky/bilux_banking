@@ -195,6 +195,21 @@ $sql = "SELECT * FROM members where id = '$admin_id'";
            
           </ul>
         </li>
+        <li class="treeview"><a href="#"><i class=" icon-credit-card"></i> 
+        <span>Investments</span>
+         <span class="pull-right-container">
+          <i class=" ti-plus"></i> </span> </a>
+          <ul class="treeview-menu">
+          <li><a href="investment_request.php?type=all">
+              <i class="fa fa-angle-right"></i> All Investments</a></li>
+            <li><a href="investment_request.php?type=pending">
+              <i class="fa fa-angle-right"></i> Pending Investments</a></li>
+            <li><a href="investments.php">
+              <i class="fa fa-angle-right"></i> Active Investments</a></li>
+           
+           
+          </ul>
+        </li>
 
 
         <li class="treeview"><a href="#"><i class=" icon-credit-card"></i> 
