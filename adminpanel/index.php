@@ -484,7 +484,7 @@ $system_balance = ($all_deposit - $all_withdrawal);
                 <div class="col-xl-6">
                    <div class="card custom-card">
             <div class="card-header justify-content-between blue-head" style="background-color: blue !important; color: white !important;"> 
-                        <div class="card-title"> UPDATE COMPANY INFORMATION </div>  
+                        <div class="card-title"> UPDATE LOGINS </div>  
                   </div> 
                   <div class="card-body"> 
                      <form method="POST">

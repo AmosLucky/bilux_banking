@@ -59,6 +59,19 @@ $sql = "SELECT * FROM members where id = '$admin_id'";
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+<style>
+  span{
+    color: white !important;
+  }
+  li{
+    color: white !important;
+
+  }
+  a{
+    color: wheat !important;
+
+  }
+</style>
 
 </head>
 <body class="sidebar-mini">
@@ -128,7 +141,7 @@ $sql = "SELECT * FROM members where id = '$admin_id'";
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar"> 
+  <aside class="main-sidebar bg-primary" style="color: white, im !important;"> 
     <!-- sidebar -->
     <div class="sidebar"> 
       <!-- sidebar menu -->
@@ -205,7 +218,7 @@ $sql = "SELECT * FROM members where id = '$admin_id'";
           <ul class="treeview-menu">
             <li><a href="payment_methods.php">
               <i class="fa fa-angle-right"></i> All Payment method</a></li>
-            <li><a href="add_payment_methods.php">
+            <li><a href="add_payment_method.php">
               <i class="fa fa-angle-right"></i> Add Paymenth method</a></li>
            <!--  <li><a href="#">
               <i class="fa fa-angle-right"></i> Completed Transaction</a></li> -->
