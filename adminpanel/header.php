@@ -62,6 +62,8 @@ $sql = "SELECT * FROM members where id = '$admin_id'";
 <style>
   span{
     color: white !important;
+    font-weight: bold;
+    
   }
   li{
     color: white !important;
@@ -141,7 +143,7 @@ $sql = "SELECT * FROM members where id = '$admin_id'";
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar bg-primary" style="color: white, im !important;"> 
+  <aside class="main-sidebar " style="color: white, im !important; background-color:#ee7600!important"> 
     <!-- sidebar -->
     <div class="sidebar"> 
       <!-- sidebar menu -->

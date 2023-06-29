@@ -45,6 +45,84 @@ $msg = '<div class="alert alert-danger text-center"> ERROR: USER CANT BE DELETED
 
 }
 
+
+if(isset($_POST['update_password'])){
+
+   $user_id = $_POST['user_id'];
+    $new_password = $_POST['new_password'];
+    $confirm = $_POST['new_passwordv'];
+
+    if(strlen($new_password) > 5 && strlen($confirm) > 5){
+
+      if($new_password == $confirm){
+
+       
+
+         if(1 == 1){
+
+          $sql = "UPDATE members set password = '$new_password' WHERE id = '$user_id'";
+         $result = mysqli_query($con,$sql)  or die("Error getting transactions ".mysqli_error($con));
+         if($result){
+
+        
+$msg = '<div class="alert alert-success text-center">
+Your password has been changed successfully
+
+</div>';
+
+///// to do errorr///////
+
+}
+
+
+
+
+         }else{
+$msg = '<div class="alert alert-danger text-center">
+Error: The old password You entered is incorrect 
+
+</div>';
+
+///// to do errorr///////
+
+}
+
+
+
+         }else{
+$msg = '<div class="alert alert-danger text-center">
+Error: Password does not match its comfirmation
+
+</div>';
+
+///// to do errorr///////
+
+}
+
+
+
+      }else{
+$error = '<div class="alert alert-danger text-center">
+
+Password must be greater than 5 characters
+
+</div>';
+
+///// to do errorr///////
+
+}
+
+
+
+    }
+
+
+
+
+
+
+
+
 if(isset($_GET['v'])){
 $id = $_GET['v'];
 $user_id = $_GET['v'];
@@ -84,11 +162,75 @@ $bitcoin_wallet = $row['bitcoin_wallet'];
 $etherum_wallet = $row['etherum_wallet'];
 $running_invest = $row['running_invest'];
 
+
+
+
+
+    ///////
+
+    $total_deposit = 0;
+$total_withdrawal = 0;
+$total_bonus = 0;
+
+
+$sql = "SELECT * FROM transactions WHERE id = '$user_id'";
+$result =  mysqli_query($con,$sql) or mysqli_error($con);
+
+
+
+while ($row = mysqli_fetch_array($result)) {
+  $status = $row['status'];
+  $amount = $row['amount'];
+  $transaction_type = $row['transaction_type'];
+  if($transaction_type == 'Withdrawal'){
+    $total_withdrawal += $amount;
+    
+
+  }else if($transaction_type == 'Deposit'){
+    $total_deposit += $amount;
+
+    
+
+
+  }else if($transaction_type == 'Bonus'){
+    $total_bonus += $amount;
+
+  }
+  
+  // else if($status == 'Withdrawal'){
+
+  // }
+
+//   $sql = "SELECT * FROM requests ";
+// $result =  mysqli_query($con,$sql) or mysqli_error($con);
+
+
+
+// while ($row = mysqli_fetch_array($result)) {
+//   $status = $row['status'];
+//   $amount = $row['amount'];
+//   $all_withdrawal += $amount;
+
+//   if($status == "pending"){
+//     $pending_withdrawal += $amount;
+//   }
+
+// }
+  
+}
+
+
+
+    ////////
+
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <div class="continer mx-5">
     <?php echo $msg ?>
+    </div>
     <!-- Content Header (Page header) -->
     <div class="content-header">
 
@@ -239,42 +381,42 @@ $running_invest = $row['running_invest'];
 
                                 </div>
 
-                                <div class="form-group mb-3">
+                                <!-- <div class="form-group mb-3">
                                     <label>System Balance</label>
                                     <br>
                                     <b>$0</b>
 
-                                </div>
+                                </div> -->
                                 <div class="form-group mb-3">
                                     <label>Available Balance</label>
                                     <br>
-                                    <b>$0</b>
+                                    <b>$<?php echo number_format($balance) ?></b>
 
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label>Total Balance</label>
+                                    <label>Total Deposit</label>
                                     <br>
-                                    <b>$0</b>
+                                    <b>$<?php echo number_format($total_deposit) ?></b>
 
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Total Withdrawal</label>
                                     <br>
-                                    <b>$0</b>
+                                    <b>$<?php echo number_format($total_withdrawal) ?></b>
 
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Total Bonuses</label>
                                     <br>
-                                    <b>$0</b>
+                                    <b>$<?php echo number_format($total_withdrawal) ?></b>
 
                                 </div>
-                                <div class="form-group mb-3">
+                                <!-- <div class="form-group mb-3">
                                     <label>Total Earning</label>
                                     <br>
                                     <b>$0</b>
 
-                                </div>
+                                </div> -->
 
                                 <!-- Input Field Ends -->
                                 <!-- Input Field Starts -->
@@ -415,16 +557,17 @@ $running_invest = $row['running_invest'];
                         </div>
                         <div class="card-body">
                             <form method="POST">
+                                <input name="user_id" type="hidden" value="<?php echo $user_id ?>">
 
                                 <div class="form-group mb-3">
                                     <label>New Password</label>
                                     <input class="form-control" value
-                                        type="text" name="password">
+                                        type="text" name="new_password">
 
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Reypr new password</label>
-                                    <input type="email" name="cpassword"
+                                    <input type="text" name="new_passwordv"
                                         value
                                         class="form-control" placeholder>
 
@@ -434,7 +577,7 @@ $running_invest = $row['running_invest'];
                                 <!-- Input Field Starts -->
 
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <button type="submit" name="update"
+                                    <button type="submit" name="update_password"
                                         class="btn btn-warning">Update Password</button>
                                     <div id="msgSubmit" class="h3 hidden"></div>
                                     <div class="clearfix"></div>
@@ -466,7 +609,7 @@ $running_invest = $row['running_invest'];
                                         <tr>
                                             <th class="wd-15p">SN</th>
                                             <th class="wd-15p">Type/Address</th>
-                                            <th class="wd-20p">Delete</th>
+                                            <!-- <th class="wd-20p">Delete</th> -->
                                         </tr>
 
                                     </thead>
@@ -494,15 +637,15 @@ $running_invest = $row['running_invest'];
                                             <td><?php echo $type.": ".$address;
                                                 ?></td>
                                             <td>
-                                                <form method="post">
+                                                <!-- <form method="post">
                                                     <input type="hidden"
-                                                        value="<?php echo $id ?>">
+                                                        value="<?php// echo $id ?>">
                                                     <button
                                                         class="btn btn-danger"
                                                         type="submit"
                                                         name="delete">Delete
                                                         wallet</button>
-                                                </form>
+                                                </form> -->
                                             </td>
 
                                         </tr>

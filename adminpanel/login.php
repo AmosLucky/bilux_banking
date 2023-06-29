@@ -156,6 +156,15 @@ $error = "";
 //   $phone = $_POST['phone'];
 // }
 
+if(isset($_GET['msg'])){
+  $msg = $_GET['msg'];
+  $error = '<div class="alert alert-primary text-center">
+           Please login
+            </div>';
+
+}
+
+
 ?>
 
 
@@ -205,6 +214,7 @@ $error = "";
   <div class="login-box-body">
     <h3 class="login-box-msg">Sign In</h3>
     <?php echo $error ?>
+   
     <form action="" method="post">
       <div class="form-group has-feedback ">
         <input type="text" name="email" class="form-control sty1" placeholder="Admin username">

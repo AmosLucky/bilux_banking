@@ -29,6 +29,8 @@ $com_id = 1;
 
 
 
+
+
 if(isset($_POST['update'])){
    $company_name = $_POST['company_name'];
 $company_email = $_POST['company_email'];
@@ -123,11 +125,25 @@ if(isset($_POST['update_password'])){
 
   if($new_password == $c_new_password){
     if($admin_passord == $current_password){
-      $sql = "UPDATE members set password = '$new_password' where id = '$admin_id'";
-      $result =  mysqli_query($con,$sql) or mysqli_error($con);
+      $sql_ = "UPDATE members set password = '$new_password' where id = '$admin_id'";
+      $result =  mysqli_query($con,$sql_) or mysqli_error($con);
       if($result){
-        $admin_passord = $_POST['new_password'];
+        //$admin_passord = $_POST['new_password'];
         $msg = '<div class="alert alert-success text-center"> Password successfully changed</div>';
+        
+
+        ?>
+        <script>
+        var delayInMilliseconds = 1000;
+
+        setTimeout(function() {
+          window.location.href = 'logout.php';
+          
+        }, delayInMilliseconds);
+             </script>
+
+             <?php
+       
 
       }else{
         $msg = '<div class="alert alert-danger text-center"> operation faild</div>';
