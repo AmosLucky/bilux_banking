@@ -5,12 +5,28 @@ require "header.php";
 $msg = "";
 
 
-if(isset($_GET['d'])){
-  $id = $_GET['d'];
+if(isset($_POST['d'])){
+  $id = $_POST['id'];
+  $user_id = $_POST['user_id'];
+  $amount = $_POST['amount'];
+  $status = $_POST['status'];
+  if($status == "approved" ){
+  $sql1 = "UPDATE members set balance = balance - '$amount' where id = '$user_id' ";
+  $rs = mysqli_query($con,$sql1) or die(mysqli_error($con));
+  if($rs){
   $sql = "DELETE FROM transactions where id = '$id'";
   $result = mysqli_query($con,$sql);
   if($result){
     $msg = '<div class="alert alert-danger">Deleted successfuly</div>';
+  }
+}
+  }else{
+    $sql = "DELETE FROM transactions where id = '$id'";
+  $result = mysqli_query($con,$sql);
+  if($result){
+    $msg = '<div class="alert alert-danger">Deleted successfuly</div>';
+  }
+
   }
 }
 
@@ -47,11 +63,12 @@ if(isset($_GET['type'])){
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper"> 
     <!-- Content Header (Page header) -->
-    <?php echo $msg ?>
+    
     
     
     <!-- Main content -->
     <div class="content">
+    <?php echo $msg ?>
       
       
       <div class="card m-t-3">
@@ -106,9 +123,18 @@ while ($row = mysqli_fetch_array($result)) {
                   <td>$<?php  echo number_format($amount) ?></td>
                   <td><?php  echo $date ?></td>
                   <td><?php  echo $status ?></td>
-                  <td>
+                  <td style="display:flex">
                     <a href="view_deposit.php?t_id=<?php echo $id ?>"><button class="btn btn-primary">View</button></a>
-                    <a href="deposits.php?d=<?php echo $id ?>&&?type=<?php echo $type ?>"><button class="btn btn-danger">Delete</button></a>
+                    
+                    
+                    <form method="POST">
+                    <input type="hidden" name="amount" value="<?php echo $amount ?>">
+                    <input type="hidden" name="status" value="<?php echo $status ?>">
+                      <input type="hidden" name="id" value="<?php echo $id ?>">
+                      <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                      <button type="submit" name="d" class="btn btn-danger">Delete</button>
+
+                    </form>
                   </td>
                 </tr>
 

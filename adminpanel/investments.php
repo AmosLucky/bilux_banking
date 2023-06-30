@@ -85,7 +85,7 @@ if(isset($_GET['d'])){
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                      <th>S/N</th>
@@ -133,6 +133,13 @@ if(isset($_GET['d'])){
 
        }
        $days = round($capital_running_hours /24);
+
+       $sql_r = "SELECT username FROM members WHERE id = '$user_id'";
+       $res = mysqli_query($con,$sql_r);
+       while($row1 = mysqli_fetch_array($res)){
+        $username = $row1['username'];
+       }
+
       
     
 
@@ -205,8 +212,34 @@ if(isset($_GET['d'])){
     <div>
 </div>
 
-<?php 
+
+ <?php
 
 require "footer.php";
-
 ?>
+
+
+
+<script src="dist/plugins/datatables/jquery.dataTables.min.js"></script> 
+<script src="dist/plugins/datatables/dataTables.bootstrap.min.js"></script> 
+<script>
+$(function () {
+  $('#example1').DataTable()
+  $('#example2').DataTable({
+    'paging'      : true,
+    'lengthChange': false,
+    'searching'   : false,
+    'ordering'    : true,
+    'info'        : true,
+    'autoWidth'   : false
+  })
+})
+</script>
+
+<script>
+$("table").tableExport({formats: ["xlsx","xls", "csv", "txt"],    });
+</script>
+</body>
+
+<!-- Mirrored from uxliner.net/xtreamer/demo/main/table-data-table.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Jun 2023 17:12:13 GMT -->
+</html>

@@ -154,7 +154,7 @@ $message = "<!DOCTYPE html>
 Hello $username,
 <br>
  
-Your request for withdrawal of USD$amount in $type will be shortly approved.
+Your request for withdrawal of USD$amount in $type has been approved.
 <br>
 <br>
         </p>

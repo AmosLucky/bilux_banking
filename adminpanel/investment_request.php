@@ -144,13 +144,20 @@ while ($row = mysqli_fetch_array($result)) {
     # code...
   }
 
+  if($status == "approved"){
+    $status_widget = '<span class="label label-success ">approved</span>';
+   }else{
+    $status_widget = '<span class="label label-warning">pending</span>';
+
+   }
+
 
                   ?>
                 <tr>
                   <td><?php  echo $sn ?></td>
                   <td><?php  echo $user ?></td>
                   <td>$<?php  echo number_format($amount) ?></td>
-                  <td><?php  echo $status ?></td>
+                  <td><?php  echo  $status_widget ?></td>
                   <td><?php  echo $date ?></th>
                   <td style="display:flex">
                     <a href="view_investment.php?t_id=<?php echo $id ?>"><button class="btn btn-primary" style="margin-right:3px">View</button></a>

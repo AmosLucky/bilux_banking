@@ -118,6 +118,7 @@ if(isset($_POST['approve'])){
     while ($row = mysqli_fetch_array($result)) {
      // $amount = $row['amount'];
       $status = $row['status'];
+      $email = $row['email'];
       # code...
     }
     /////////////////////////////////////////////////////
@@ -163,12 +164,13 @@ if(isset($_POST['approve'])){
       $referer = $row['referred_by'];
       $num_of_days = $row['num_of_days'];
       $email = $row['email'];
+      $user_email = $row['email'];
       $username = $row['username'];
       # code...
     }
 //////////////////////////////////////////////// when user has not paid //////////
     if($paid == false){
-       $sql = "SELECT referral_balance, balance, id, username from members where username = '$referer'";
+       $sql = "SELECT referral_balance, balance, id, username, email from members where username = '$referer'";
     $result1 = mysqli_query($con,$sql) or die("Cant approve ".mysqli_error($con));
    $num = mysqli_num_rows($result1);
    if($num==1){
@@ -186,6 +188,7 @@ if(isset($_POST['approve'])){
       $referral_balance = $row['referral_balance'];
       $referral_id = $row['id'];
       $user_name = $row['username'];
+      $ref_email =  $row['email'];
       # code...
     }
     //////////////// add to his referral amount /////////
@@ -197,6 +200,94 @@ if(isset($_POST['approve'])){
     $params = array("user_id"=>$referral_id,"user_name"=>$user_name,"status"=>"approved","amount"=>$referal_bonus,"transaction_type"=>"Bonus","description"=>"Referral bonus","wallet_type"=>"USDT","invest_date"=>$invest_date);
     $result = $model->insertIntoTable("transactions",$params);
     //echo $result['status'];
+    $email = $ref_email;
+
+    /////SEND REFREER A MESSAGE////
+    $subject = "Referral Bonus";
+    $msg2 = "<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title></title>
+<style type='text/css'>
+  body{
+    margin: 20px;
+  }
+  .head{
+    height: 50px;
+    padding: 20px;
+    background-color: #152238;
+
+  }
+  .body{
+    padding: 20px;
+    background-color: #F8F4E6;
+  }
+  .logo{
+    height: 50px;
+  }
+  .footer{
+    background-color: #152238;
+    height: 100px;
+    color: white;
+    padding: 20px;
+
+  }
+  .block{
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+<div class='head'>
+ $company_logo2
+  
+</div>
+<div class='body'>
+  
+  
+
+  <h2>
+    Hello $user_name
+
+  </h2>
+
+  <h4>
+    $company_name
+  </h4>
+
+  <p class='block'>
+    
+<br>
+Thank you for Referring $ to our website, 
+
+<br>
+click the link below to proceed to login
+<br>
+  </p>
+
+  
+</div>
+
+<div class='footer'>
+  <p>
+    Support is available 24/7  <br>             
+Best Regards, $company_name the
+AU: + <br>
+$company_email
+  </p>
+  
+</div>
+
+</body>
+</html>
+";
+             
+             require "../mail.php";
+
+
+    ///////////////////////
 
     }
 
@@ -226,7 +317,7 @@ $result = mysqli_query($con,$sql) or die("Cant approve ".mysqli_error($con));
 
 ////////////USER EMAIL//////////////
 
-
+$email = $user_email;
 
 //////////////////////////////////////
      $subject = "Deposit approved";

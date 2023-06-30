@@ -7,7 +7,8 @@ $msg = "";
 if(isset($_POST['delete'])){
 $id = $_POST['id'];
 
-$sql = "DELETE  members where id = '$id' ";
+$sql = "DELETE FROM  members where id = '$id' ";
+
 $result = mysqli_query($con,$sql) or die("Cant delete ".mysqli_error($con));
 if($result){
 
@@ -275,9 +276,9 @@ while ($row = mysqli_fetch_array($result)) {
 
                 </div>
                 <div>
-                    <form method="POST">
+                    <form method="POST" action="members.php">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
-                        <button type="submit" name="delete"
+                        <button type="submit" name="delete_user"
                             class="btn btn-danger">Delete</button>
                     </form>
                 </div>

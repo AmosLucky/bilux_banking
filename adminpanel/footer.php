@@ -1,7 +1,7 @@
 <!-- /.content-wrapper -->
 <footer class="main-footer">
-    <div class="pull-right hidden-xs">Version 1.0</div>
-    Copyright &copy; 2015 - 2022 Xtreamer. All rights reserved by <a target="_blank" href="https://themeforest.net/user/uxliner">UXLiner</a> </footer>
+    <div class="pull-right hidden-xs"></div>
+    Copyright &copy; 2023 <?php echo $company_name ?>. All rights reserved by  </footer>
 </div>
 <!-- ./wrapper --> 
 

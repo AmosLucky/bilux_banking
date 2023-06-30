@@ -59,9 +59,9 @@ require "header.php";
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex align-items-baseline">
-                    <p class="card-title mb-1">Investment Balance</p>
+                    <p class="card-title mb-1">Profit Balance</p>
                   </div>
-                  <h2 class="mb-2 mt-1">$<?php  echo number_format($running_invest,2) ?></h2>
+                  <h2 class="mb-2 mt-1">$<?php  echo number_format($profit,3) ?></h2>
                   <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
@@ -104,52 +104,7 @@ require "header.php";
 
 
 
-             <div class="col-md-3 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-baseline">
-                    <p class="card-title mb-1">Profite Balance</p>
-                  </div>
-                  <h3 class="mb-2 mt-1">$<?php  echo number_format($profit,2);   ?></h3>
-                   <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-  "symbols": [
-    {
-      "proName": "FOREXCOM:SPXUSD",
-      "title": "S&P 500"
-    },
-    {
-      "proName": "FOREXCOM:NSXUSD",
-      "title": "US 100"
-    },
-    {
-      "proName": "FX_IDC:EURUSD",
-      "title": "EUR/USD"
-    },
-    {
-      "proName": "BITSTAMP:BTCUSD",
-      "title": "Bitcoin"
-    },
-    {
-      "proName": "BITSTAMP:ETHUSD",
-      "title": "Ethereum"
-    }
-  ],
-  "showSymbolLogo": true,
-  "colorTheme": "dark",
-  "isTransparent": true,
-  "displayMode": "adaptive",
-  "locale": "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
-                </div>
-              </div>
-            </div>
+             
                        <!-- demacate -->
                 <!-- demacate -->
                 <!-- demacate -->
@@ -186,7 +141,7 @@ require "header.php";
                     </div>
                   </div>
                   <div class="d-flex justify-content-between align-items-center flex-wrap" style="float: right"><br>
-                  <h4 class="mb-2 mt-1"><p class="mb-0 text-warning">1 BTC</p>$ 26,414.00</h4>
+                  <h4 class="mb-2 mt-1"><p class="mb-0 text-warning">1 BTC</p>$ 0.00</h4>
                   </div>
                 </div>
               </div>

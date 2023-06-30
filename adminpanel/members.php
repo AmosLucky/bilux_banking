@@ -1,8 +1,10 @@
 <?php
 
 require "header.php";
+$msg = "";
 $sql = "SELECT *  From members ";
 $type = "all";
+
 
 if(isset($_GET['type'])){
   $type = $_GET['type'];
@@ -25,6 +27,21 @@ if(isset($_GET['type'])){
 
 }
 
+if(isset($_POST['delete_user'])){
+  $id = $_POST['id'];
+  
+  $sql_0 = "DELETE FROM  members where id = '$id' ";
+  
+  $result_0 = mysqli_query($con,$sql_0) or die("Cant delete ".mysqli_error($con));
+  if($result_0){
+  
+  $msg = '<div class="alert alert-success text-center">SUCCESSFULLY DELETED</div>';
+  }else{
+  $msg = '<div class="alert alert-danger text-center"> ERROR: USER CANT BE DELETED</div>';
+  }
+  
+  }
+
 ?>
   
   <!-- Content Wrapper. Contains page content -->
@@ -34,6 +51,11 @@ if(isset($_GET['type'])){
     
     <!-- Main content -->
     <div class="content">
+    <div class="row container mx-5">
+      <div class="col-md-8"><?php echo $msg ?></div>
+    </div>
+
+    
       
       
       <div class="card m-t-3">

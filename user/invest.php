@@ -1,6 +1,7 @@
 <?php
 include "header.php";
 $error = "";
+$msg = "";
 
 
 
@@ -18,7 +19,7 @@ $plan_id = $plan[0];
 $amount = $_POST['amount'];
   $wallet = "Investment"; //$_POST['channel_name'];
   //$msg = $_POST['note'];
-  $status = "pending";
+  $status = "approved";
   $amount = trim($amount);
   $wallet = trim($wallet);
 
@@ -81,7 +82,66 @@ $amount = $_POST['amount'];
   //     )";
   $result = mysqli_query($con,$sql) or die("Can not submit ".mysqli_error($con));
   if($result){
-   echo  $msg =  '<div class="alert alert-success text-center">successful, status: pending approval</div>';
+
+
+    ////INSERT INTO INVESTMENTS////
+
+
+    ///////////////////////ADDING  RUNNING INVESTMENT TO USER/////////////
+   $new_running_invest = floatval($running_invest) + floatval($amount);
+   $sql = "UPDATE members set  running_invest = '$new_running_invest' where id = '$user_id'";
+      //////////////////////////////end //////////
+     // $new_running_invest = floatval($running_invest) + floatval($amount);
+  
+     // if($num_of_days == 0){
+     //   $sql = "UPDATE members set  running_invest = '$new_running_invest' where id = '$user_id'";
+     // }else{
+     //   $sql = "UPDATE members set  running_invest = '$new_running_invest' where id = '$user_id'";
+     // }
+  $result = mysqli_query($con,$sql) or die("Cant approve ".mysqli_error($con));
+     if($result){
+
+
+      $sql = "insert into investments (
+        user_id, 
+        plan_id,
+        plan_name,
+        profit,
+        amount,
+        username,
+        profit_running_hours,
+        capital_running_hours
+        )
+          value(
+          '$user_id',
+          '$plan_id',
+          '$plan_name',
+          '0',
+          '$amount',
+          '$username',
+          '0',
+          '0'
+        )";
+    $result = mysqli_query($con,$sql) or die("Can not submit ".mysqli_error($con));
+    if($result){
+        $msg =  '<div class="alert alert-success text-center">successful, status:  approval</div>';
+  
+    }else{
+      $msg =  '<div class="alert alert-failed text-center">Investment Couldnt strart mysqli_error($con) </div>';
+    }
+
+
+
+
+
+     }else{
+    $msg =  '<div class="alert alert-failed text-center">Investment Couldnt strart mysqli_error($con) </div>';
+  }
+
+
+
+
+
 
   }else{
     $msg =  '<div class="alert alert-failed text-center">Investment Couldnt strart mysqli_error($con) </div>';
@@ -144,7 +204,7 @@ $amount = $_POST['amount'];
          
 
          </p>
-         Your investment of USD$amount is waiting approval.
+         Your investment of USD$amount is  approval.
 
 
          <p>
@@ -152,10 +212,6 @@ $amount = $_POST['amount'];
          We appreciate your interest and the time you have taken to submit your investment request.
          <br>
 
-We understand that you are eagerly awaiting approval for your investment, 
-<br>
-and we want to assure you that our team is carefully reviewing your request. 
-<br>
 Thank you for investing with our company.
 
 
@@ -303,6 +359,7 @@ $message .= '</body></html>';
                 <div class="card-body">
                   <h3 class="card-title">Invest</h3>
                   <?php echo $error ?>
+                  <?php echo $msg ?>
                   <form id="form" class="forms-sample" action="" method="post">
                                             
                     <div class="form-group">
