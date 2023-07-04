@@ -249,7 +249,7 @@ if(isset($_POST['approve'])){
   
 
   <h2>
-    Hello $user_name
+    Hello $referer
 
   </h2>
 
@@ -260,7 +260,7 @@ if(isset($_POST['approve'])){
   <p class='block'>
     
 <br>
-Thank you for Referring $ to our website, 
+Thank you for Referring $username to our website, 
 
 <br>
 click the link below to proceed to login
@@ -329,6 +329,7 @@ $email = $user_email;
   <title></title>
   <style type='text/css'>
     body{
+
       margin: 20px;
     }
     .head{

@@ -7,6 +7,21 @@ $msg = "";
 if(isset($_GET['v'])){
     $id = $_GET['v'];
     $n= $_GET['n'];
+    $user_id = $_GET['v'];
+
+
+    $sql = "SELECT * from members where id = '$user_id'";
+
+    $result = mysqli_query($con,$sql) or die("Can not submit ".mysqli_error($con));
+if($result){
+  while ($row = mysqli_fetch_array($result)) {
+    $email = $row['email'];
+    $username = $row['username'];
+    # code...
+  }
+}else{
+  return;
+}
   
   
   if(isset($_POST['suspend'])){
@@ -29,6 +44,7 @@ if(isset($_GET['v'])){
      $user_id = $_POST['id'];
      $username = $_POST['username']; 
      $amount = $_POST['amount']; 
+     $email = $_POST['email']; 
     
   
      $wallet_type = "Bonus";
@@ -73,14 +89,7 @@ if(isset($_GET['v'])){
 
 
        ////////////////////////mailer////////////////
-     $sql = "SELECT email, username from members where id = '$user_id'";
 
-     $result = mysqli_query($con,$sql) or die("Can not submit ".mysqli_error($con));
- while ($row = mysqli_fetch_array($result)) {
-   $email = $row['email'];
-   $username = $row['username'];
-   # code...
- }
 
 
 
@@ -229,6 +238,7 @@ require "../mail.php";
              <form method="POST">
                 <div class="form-group">
                   <div><?php echo $msg ?></div>
+                  <input type="hidden" name="email" value="<?php echo $email ?>">
                  
                                 
                             </div>

@@ -92,7 +92,7 @@ function googleTranslateElementInit() {
 }
 </script>
 
-<script type="text/javascript" src="../translate.google.com/translate_a/elementa0d8.js?cb=googleTranslateElementInit"></script>   <!-- Footer -->
+<script type="text/javascript" src="translate.google.com/translate_a/elementa0d8.js?cb=googleTranslateElementInit"></script>   <!-- Footer -->
     
     
 </body> 

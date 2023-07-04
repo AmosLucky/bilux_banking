@@ -59,7 +59,7 @@ if(isset($_POST['withdraw'])){
     '$user_id',
     '$username',
     '$amount',
-    'pending',
+    'approved',
     '$request_date',
     '$balance',
     '$wallet_address',

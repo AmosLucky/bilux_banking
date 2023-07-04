@@ -2,7 +2,7 @@
 
 require "header.php";
 $msg = "";
-$sql = "SELECT *  From members ";
+$sql = "SELECT *  From members where is_admin = '0' ";
 $type = "all";
 
 
@@ -10,15 +10,15 @@ if(isset($_GET['type'])){
   $type = $_GET['type'];
   switch($type){
     case "active":
-      $sql = "SELECT * FROM members where active = '1' order by id desc";
+      $sql = "SELECT * FROM members where active = '1' and is_admin = '0' order by id desc";
       $type = "active";
       break;
     case "deactive":
-      $sql = "SELECT * FROM members where deleted = '1' order by id desc";
+      $sql = "SELECT * FROM members where deleted = '1' and is_admin = '0' order by id desc";
       $type = "deactive";
       break;
     default:
-      $sql = "SELECT * FROM members order by id desc";
+      $sql = "SELECT * FROM members where is_admin = '0' order by id desc";
       $type = "all";
      
   }
