@@ -40,7 +40,7 @@ require "header.php";
       
 
 
-      $sql = "select * from  transactions where description = 'Referral bonus' and transaction_type = 'Bonus' order by id desc"; 
+      $sql =  "select * from  transactions where description = 'Referral bonus' and transaction_type = 'Bonus' order by id desc"; 
       $result = mysqli_query($con,$sql)  or die("Error getting transactions ".mysqli_error($con));
       $sn = 0;
       while ($row = mysqli_fetch_array($result)) {
