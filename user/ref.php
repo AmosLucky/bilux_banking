@@ -40,7 +40,7 @@ require "header.php";
       
 
 
-      $sql = "select * from  members where referred_by = '$user' and paid = '1' order by id desc"; 
+      $sql = "SELECT * from  members where referred_by = '$user' order by id desc"; 
       $result = mysqli_query($con,$sql)  or die("Error getting transactions ".mysqli_error($con));
       
       $sn = 0;
@@ -56,10 +56,14 @@ require "header.php";
         $ref_id = $row['id'];
 
         $my_sql = "SELECT amount from transactions where user_id = '$ref_id' and transaction_type = 'Deposit' and status = 'approved' LIMIT 1";
-        $res = mysqli_query($con,$my_sql);
-       while( $r = mysqli_fetch_array($res)){
-        $amount = $r['amount']/10;
-       }
+        $res1 = mysqli_query($con,$my_sql1);
+        $r = mysqli_fetch_assoc($res1);
+        if($r['amount'] > 0){
+          $amount = $r['amount']/10;
+
+        }
+        
+       
         
 
 
