@@ -259,7 +259,7 @@ As a leading investment platform in Europe, we do everything we can to enable ac
                                         
                                         
                                         <?php
-                                $query = "SELECT * FROM transactions where    transaction_type = 'Investment' order by id desc LIMIT 0,5 ";
+                                $query = "SELECT * FROM transactions where    transaction_type = 'Deposit' order by id desc LIMIT 0,7 ";
                                 $result = $con->query($query)or die(mysqli_error($con));
                                 while ($row = mysqli_fetch_array($result)) {
                                     $username = $row['user_name'];
@@ -310,7 +310,7 @@ As a leading investment platform in Europe, we do everything we can to enable ac
 
 
                                         <?php
-                                $query = "SELECT * FROM transactions where    transaction_type = 'Withdrawal' order by id desc LIMIT 0,5 ";
+                                $query = "SELECT * FROM transactions where    transaction_type = 'Withdrawal' order by id desc LIMIT 0,7 ";
                                 $result = $con->query($query)or die(mysqli_error($con));
                                 while ($row = mysqli_fetch_array($result)) {
                                     $username = $row['user_name'];
