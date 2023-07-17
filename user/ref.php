@@ -48,9 +48,9 @@ require "header.php";
         $sn++;
 
         # code...
-        $user = $row['username'];
-        $state = $row['state'];
-        $date = $row['date'];
+        $user = $row['user_name'];
+        //$state = $row['state'];
+       // $date = $row['date'];
         $amount = $row['amount']
 
        
