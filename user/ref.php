@@ -40,18 +40,28 @@ require "header.php";
       
 
 
-      $sql =  "select * from  transactions where description = 'Referral bonus' and transaction_type = 'Bonus' order by id desc"; 
+      $sql = "select * from  members where referred_by = '$user' and paid = '1' order by id desc"; 
       $result = mysqli_query($con,$sql)  or die("Error getting transactions ".mysqli_error($con));
+      
       $sn = 0;
       while ($row = mysqli_fetch_array($result)) {
 
         $sn++;
 
         # code...
-        $user = $row['user_name'];
+        $user = $row['username'];
+        $amount = 0;
         //$state = $row['state'];
        // $date = $row['date'];
-        $amount = $row['amount']
+        $ref_id = $row['id'];
+
+        $my_sql = "SELECT amount from transactions where user_id = '$ref_id' and transaction_type = 'Deposit' and status = 'approved' LIMIT 1";
+        $res = mysqli_query($con,$my_sql);
+       while( $r = mysqli_fetch_array($res)){
+        $amount = $r['amount']/10;
+       }
+        
+
 
        
       
@@ -61,7 +71,7 @@ require "header.php";
       <tr>
       <td><?php  echo $sn ?></td>
         <td><?php  echo $user ?></td>
-        <td><?php  echo $amount ?></td>
+        <td>$<?php  echo $amount ?></td>
         
       </tr>
       
