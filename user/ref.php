@@ -56,11 +56,12 @@ require "header.php";
         $ref_id = $row['id'];
 
         $my_sql = "SELECT amount from transactions where user_id = '$ref_id' and transaction_type = 'Deposit' and status = 'approved' LIMIT 1";
-        $res1 = mysqli_query($con,$my_sql1);
-        $r = mysqli_fetch_assoc($res1);
-        if($r['amount'] > 0){
+        $res1 = mysqli_query($con,$my_sql);
+       
+        if(mysqli_num_rows($res1)>0){
+          $r = mysqli_fetch_assoc($res1);
           $amount = $r['amount']/10;
-
+          
         }
         
        
